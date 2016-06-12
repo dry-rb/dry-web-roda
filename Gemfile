@@ -3,8 +3,6 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in rodakase.gemspec
 gemspec
 
-gem "roda-flow", github: "timriley/roda-flow", branch: "drop-roda-container-dependency"
-
 group :test do
   gem 'byebug', platform: :mri
   gem 'rack-test'
