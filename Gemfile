@@ -8,7 +8,7 @@ group :test do
   gem 'rack-test'
   gem 'dry-monads'
   gem 'dry-view'
-  gem 'dry-web', github: 'dry-rb/dry-web', branch: 'extract-roda'
+  gem 'dry-web', '~> 0.2.0'
   gem 'slim'
 
   gem 'codeclimate-test-reporter', platform: :rbx
