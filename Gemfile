@@ -7,6 +7,7 @@ group :test do
   gem 'byebug', platform: :mri
   gem 'rack-test'
   gem 'dry-monads'
+  gem 'dry-transaction'
   gem 'dry-view'
   gem 'dry-web', '~> 0.2.0'
   gem 'slim'

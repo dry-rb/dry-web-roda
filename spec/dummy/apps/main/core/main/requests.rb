@@ -1,4 +1,5 @@
 require_relative 'container'
+require 'dry-transaction'
 
 module Main
   module Requests
@@ -10,7 +11,7 @@ module Main
       end
 
       def define(identifier, &block)
-        container.register(identifier, container[:transaction].define(&block))
+        container.register(identifier, Dry.Transaction(container: container, &block))
       end
     end
 
