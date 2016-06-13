@@ -3,6 +3,7 @@ require 'dry/web/container'
 module Main
   class Container < Dry::Web::Container
     configure do |config|
+      config.core_dir = 'component'
       config.root = Pathname(__FILE__).join('../..').realpath.dirname.freeze
       config.auto_register = 'lib'
     end

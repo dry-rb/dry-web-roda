@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'dry/web/cli'
-# require_relative '../core/boot'
+# require_relative '../component/boot'
 
 Dry::Web::Cli.start
