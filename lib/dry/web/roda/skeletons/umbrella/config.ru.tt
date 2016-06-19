@@ -1,0 +1,2 @@
+require_relative "component/boot"
+run <%= config[:camel_cased_app_name] %>::Application.freeze.app
