@@ -1,3 +1,9 @@
+# 0.2.1 / 2016-06-22
+
+### Fixed
+
+- Fixed a broken require in generated apps (timriley)
+
 # 0.2.0 / 2016-06-22
 
 ### Added
