@@ -1,0 +1,11 @@
+require "rom-repository"
+require "<%= config[:underscored_app_name] %>/container"
+require "<%= config[:underscored_app_name] %>/import"
+
+<%= config[:camel_cased_app_name] %>::Container.boot! :rom
+
+module <%= config[:camel_cased_app_name] %>
+  class Repository < ROM::Repository::Root
+    include <%= config[:camel_cased_app_name] %>::Import.args["persistence.rom"]
+  end
+end

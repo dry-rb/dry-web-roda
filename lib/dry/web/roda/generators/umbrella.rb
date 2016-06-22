@@ -1,19 +1,26 @@
 require "inflecto"
+require "securerandom"
 require "dry/web/roda/generate"
+require "dry/web/roda/generators/app"
 
 module Dry
   module Web
     module Roda
       module Generators
         class Umbrella
-          attr_reader :generate
+          attr_reader :generate, :app_generator
 
           def initialize
-            @generate = Dry::Web::Roda::Generate.new("umbrella")
+            @generate = Generate.new("umbrella")
+            @app_generator = Generators::App.new
           end
 
           def call(target_dir)
-            generate.call(target_dir, prepare_scope(target_dir))
+            generate.(target_dir, prepare_scope(target_dir))
+
+            Dir.chdir(target_dir) do
+              app_generator.("main", target_dir)
+            end
           end
 
           private

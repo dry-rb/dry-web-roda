@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "dry/web/console"
+require_relative "../component/boot"
+
+Dry::Web::Console.start

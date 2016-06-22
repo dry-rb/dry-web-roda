@@ -7,18 +7,15 @@ module Dry
       class Generate
         SKELETONS_DIR = "skeletons".freeze
 
-        class Processor < Thor
-          include Thor::Actions
-        end
-
         attr_reader :source_dir
         attr_reader :processor
 
         def initialize(skeleton_name)
-          @source_dir = Pathname(__dir__).join(SKELETONS_DIR).join(skeleton_name)
+          @source_dir = Pathname(__FILE__).dirname.join(SKELETONS_DIR).join(skeleton_name)
 
-          # TODO: determine if this is a problem across multiple instances
-          @processor = Processor.new
+          @processor = Class.new(Thor) do
+            include Thor::Actions
+          end.new
           @processor.class.source_root source_dir
         end
 

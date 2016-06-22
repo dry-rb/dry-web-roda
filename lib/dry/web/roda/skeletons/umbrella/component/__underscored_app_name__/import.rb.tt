@@ -1,0 +1,5 @@
+require_relative "container"
+
+module <%= config[:camel_cased_app_name] %>
+  Import = <%= config[:camel_cased_app_name] %>::Container::Inject
+end

@@ -1,0 +1,3 @@
+# <%= config[:camel_cased_app_name] %>
+
+You’ve generated an app using dry-web-roda.
