@@ -12,8 +12,11 @@ module Dry
             @generate = Dry::Web::Roda::Generate.new("app")
           end
 
-          def call(target_dir, umbrella_name)
-            generate.call(File.join("apps", target_dir), prepare_scope(target_dir, umbrella_name))
+          def call(target_dir, options = {})
+            umbrella_name = options.fetch(:umbrella)
+            generate_to = options.fetch(:to) { File.join("apps", target_dir) }
+
+            generate.(generate_to, prepare_scope(target_dir, umbrella_name))
           end
 
           private

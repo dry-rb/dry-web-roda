@@ -19,7 +19,7 @@ module Dry
             generate.(target_dir, prepare_scope(target_dir))
 
             Dir.chdir(target_dir) do
-              app_generator.("main", target_dir)
+              app_generator.("main", umbrella: target_dir)
             end
           end
 
