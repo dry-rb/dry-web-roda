@@ -7,8 +7,12 @@ module Dry
         desc "new APP", "Generate a new dry-web-roda project"
         def new(app_name)
           require "dry/web/roda/generators/umbrella"
-          Dry::Web::Roda::Generators::Umbrella.new.call(app_name)
+          Generators::Umbrella.new.(app_name)
         end
+
+        desc "generate GENERATOR", "Generate a new component for an existing dry-web-roda project"
+        require "dry/web/roda/cli/generate"
+        subcommand "generate", CLI::Generate
       end
     end
   end
