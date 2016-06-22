@@ -1,0 +1,7 @@
+# Define your routes like this:
+#
+# class <%= config[:camel_cased_app_name] %>::Application
+#   route "example" do |r|
+#     # Routes go here
+#   end
+# end

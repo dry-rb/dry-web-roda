@@ -1,0 +1,17 @@
+require "dry/web/umbrella"
+require_relative "settings"
+
+module <%= config[:camel_cased_app_name] %>
+  class Container < Dry::Web::Umbrella
+    configure do
+      config.name = :core
+      config.settings_loader = <%= config[:camel_cased_app_name] %>::Settings
+    end
+
+    load_paths! "lib", "component"
+
+    def self.settings
+      config.settings
+    end
+  end
+end

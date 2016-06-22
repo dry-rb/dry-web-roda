@@ -1,0 +1,10 @@
+require_relative "main/container"
+
+<%= config[:camel_cased_app_name] %>::Container.finalize! do |container|
+end
+
+require "<%= config[:underscored_app_name] %>/application"
+require "<%= config[:underscored_app_name] %>/view"
+require "<%= config[:underscored_app_name] %>/transactions"
+
+<%= config[:camel_cased_app_name] %>::Container.require "transactions/**/*.rb"
