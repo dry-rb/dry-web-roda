@@ -3,7 +3,7 @@ require "dry-view"
 require "<%= config[:underscored_app_name] %>/container"
 require "<%= config[:underscored_app_name] %>/page"
 
-module Main
+module <%= config[:camel_cased_app_name] %>
   Container.register "page", Page.new
 
   class View < Dry::View::Layout
