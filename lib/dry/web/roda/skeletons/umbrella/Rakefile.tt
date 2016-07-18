@@ -37,7 +37,7 @@ namespace :db do
       require "uri"
       uri = URI(DB.url)
 
-      dump = `pg_dump -h #{uri.hostname} -i -s -x -O #{uri.path.tr("/", "")}`
+      dump = `pg_dump -h #{uri.hostname} -s -x -O #{uri.path.tr("/", "")}`
       File.open "db/structure.sql", "w" do |file|
         file.write dump
       end
