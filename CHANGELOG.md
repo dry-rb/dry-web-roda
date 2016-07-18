@@ -1,3 +1,10 @@
+# 0.2.2 / 2016-07-18
+
+### Fixed
+
+- Fixed a misnamed module in sub-app generator (hl)
+- Removed a deprecated option from the `pg_dump` invocation after migrations (timriley)
+
 # 0.2.1 / 2016-06-22
 
 ### Fixed
