@@ -1,3 +1,9 @@
+# 0.3.3 / 2016-07-23
+
+### Changed
+
+- By default, don't display warning output when running specs (timriley)
+
 # 0.2.2 / 2016-07-18
 
 ### Fixed
