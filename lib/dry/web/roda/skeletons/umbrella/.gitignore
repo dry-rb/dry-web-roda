@@ -3,3 +3,6 @@
 
 # RSpec
 /spec/examples.txt
+
+# Logs
+/logs/*.log
