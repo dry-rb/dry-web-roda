@@ -3,6 +3,7 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in rodakase.gemspec
 gemspec
 
+gem 'dry-system', github: 'dry-rb/dry-system', branch: 'master'
 gem 'dry-web', github: 'dry-rb/dry-web', branch: 'master'
 
 group :test do
