@@ -1,5 +1,5 @@
 module Persistence
-  class Container < Dry::Component::Container
+  class Container < Dry::System::Container
     configure do |config|
       config.root = Pathname(__dir__).join('persistence')
       config.name = :persistence
