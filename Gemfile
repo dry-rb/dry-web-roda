@@ -3,6 +3,8 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in rodakase.gemspec
 gemspec
 
+gem 'dry-web', github: 'dry-rb/dry-web', branch: 'master'
+
 group :test do
   gem 'byebug', platform: :mri
   gem 'rack', '>= 1.0.0', '<= 2.0.0'
@@ -10,7 +12,6 @@ group :test do
   gem 'dry-monads'
   gem 'dry-transaction'
   gem 'dry-view'
-  gem 'dry-web', '~> 0.4.0'
   gem 'slim'
 
   gem 'codeclimate-test-reporter', platform: :rbx
