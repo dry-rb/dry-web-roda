@@ -1,3 +1,3 @@
-require_relative 'component/boot'
+require_relative 'system/boot'
 
 run Dummy::Application.freeze.app
