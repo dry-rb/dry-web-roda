@@ -7,7 +7,9 @@ gem "dry-web", ">= 0.4.0"
 gem "dry-web-roda", ">= 0.3.0"
 gem "puma"
 gem "rack_csrf"
-gem "shotgun"
+
+gem "rack", ">= 2.0"
+gem "notgun"
 
 # Database persistence
 gem "pg"
