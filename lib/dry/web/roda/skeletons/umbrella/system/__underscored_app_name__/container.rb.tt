@@ -8,7 +8,7 @@ module <%= config[:camel_cased_app_name] %>
       config.settings_loader = <%= config[:camel_cased_app_name] %>::Settings
     end
 
-    load_paths! "lib", "component"
+    load_paths! "lib", "system"
 
     def self.settings
       config.settings

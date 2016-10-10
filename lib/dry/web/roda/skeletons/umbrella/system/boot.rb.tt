@@ -7,6 +7,6 @@ require_relative "<%= config[:underscored_app_name] %>/container"
 end
 
 app_paths = Pathname(__FILE__).dirname.join("../apps").realpath.join("*")
-Dir[app_paths].each { |f| require "#{f}/component/boot" }
+Dir[app_paths].each { |f| require "#{f}/system/boot" }
 
 require_relative "<%= config[:underscored_app_name] %>/application"
