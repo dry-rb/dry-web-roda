@@ -10,7 +10,7 @@ module <%= config[:camel_cased_app_name] %>
     setting :root, Container.root.join("web/templates")
     setting :scope, Container["page"]
     setting :formats, {html: :slim}
-    setting :name, "application"
+    setting :name, "<%= config[:underscored_app_name] %>"
 
     def locals(options)
       super.merge(options[:scope].view_locals)
