@@ -9,6 +9,7 @@
 - Use latest released versions of rom-repository and rom-sql, instead of relying on their master branches (wafcio)
 - Replace dry-result_matcher gem with dry-matcher (gotar)
 - Add dry-monads and dry-struct gems to generated Gemfile (gotar)
+- Expect symbols for flash keys in generated `Page` class (timriley)
 
 ### Fixed
 
