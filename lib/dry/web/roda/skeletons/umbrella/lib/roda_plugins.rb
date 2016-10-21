@@ -23,7 +23,7 @@ class Roda
       module RequestMethods
         def view(name, overrides = {})
           options = {scope: scope.current_page}.merge(overrides)
-          is to: "#{scope.name}.views.#{name}", call_with: [options]
+          is to: "views.#{name}", call_with: [options]
         end
       end
     end
