@@ -9,7 +9,7 @@ gem "puma"
 gem "rack_csrf"
 
 gem "rack", ">= 2.0"
-gem "notgun"
+gem "shotgun", ">= 0.9.2"
 
 # Database persistence
 gem "pg"
