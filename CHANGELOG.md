@@ -1,6 +1,22 @@
+# 0.5.0 - 2016-10-21
+
+### Changed
+
+- Depend on the version of shotgun with fixes for Rack 2.0 (timriley)
+- Update to work with latest dry-web and dry-system
+  - Expect `system/` dirs instead of `component/` (gotar)
+  - Update bootable dependency files to match latest dry-system API for bootable dependencies with lifecycles (gotar)
+- Use latest released versions of rom-repository and rom-sql, instead of relying on their master branches (wafcio)
+- Replace dry-result_matcher gem with dry-matcher (gotar)
+- Add dry-monads and dry-struct gems to generated Gemfile (gotar)
+
+### Fixed
+
+- Update `view` roda plugin to expect default namespace in sub-app containers (timriley)
+
 # 0.4.0 - 2016-08-15
 
-Update to dry-web with dry-system
+Update to dry-web with dry-system (solnic)
 
 # 0.3.0 - 2016-07-26
 
