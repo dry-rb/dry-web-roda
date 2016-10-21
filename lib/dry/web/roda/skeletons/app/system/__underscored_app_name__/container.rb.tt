@@ -9,6 +9,8 @@ module <%= config[:camel_cased_app_name] %>
     configure do |config|
       config.root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
 
+      config.default_namespace = "<%= config[:underscored_app_name] %>"
+
       config.auto_register = %w[
         lib/<%= config[:underscored_app_name] %>
       ]
