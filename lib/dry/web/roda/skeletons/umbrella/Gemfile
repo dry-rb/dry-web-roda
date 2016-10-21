@@ -4,7 +4,7 @@ gem "rake"
 
 # Web framework
 gem "dry-web", ">= 0.5.0"
-gem "dry-web-roda", ">= 0.4.0"
+gem "dry-web-roda", ">= 0.5.0"
 gem "puma"
 gem "rack_csrf"
 
