@@ -5,4 +5,4 @@
 /spec/examples.txt
 
 # Logs
-/logs/*.log
+/log/*.log
