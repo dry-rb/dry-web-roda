@@ -20,7 +20,7 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(
     app,
     js_errors: false,
-    phantomjs_logger: File.open(SPEC_ROOT.join("../log/phantomjs.log"), "w"),
+    phantomjs_logger: File.open(SPEC_ROOT.join("../logs/phantomjs.log"), "w"),
     phantomjs_options: %w(--load-images=no)
   )
 end
