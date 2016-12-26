@@ -1,3 +1,9 @@
+# 0.5.1 - 2016-12-27
+
+### Fixed
+
+- `.gitignore` in generated umbrella app correctly ignores `log/` directory (alsemyonov)
+
 # 0.5.0 - 2016-10-21
 
 ### Changed
