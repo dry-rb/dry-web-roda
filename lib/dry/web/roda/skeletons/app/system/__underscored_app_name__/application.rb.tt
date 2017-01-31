@@ -14,9 +14,6 @@ module <%= config[:camel_cased_app_name] %>
 
     plugin :csrf, raise: true
     plugin :flash
-    def name
-      :<%= config[:underscored_app_name] %>
-    end
     plugin :dry_view
 
     route do |r|
