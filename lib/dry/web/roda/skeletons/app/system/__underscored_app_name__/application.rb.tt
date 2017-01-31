@@ -1,7 +1,5 @@
-require "rack/csrf"
 require "dry/web/roda/application"
 require_relative "container"
-require "roda_plugins"
 
 module <%= config[:camel_cased_app_name] %>
   class Application < Dry::Web::Roda::Application
@@ -13,16 +11,13 @@ module <%= config[:camel_cased_app_name] %>
     opts[:root] = Pathname(__FILE__).join("../..").realpath.dirname
 
     use Rack::Session::Cookie, key: "<%= config[:underscored_app_name] %>.session", secret: <%= config[:camel_cased_umbrella_name] %>::Container.settings.session_secret
-    use Rack::Csrf, raise: true
 
+    plugin :csrf, raise: true
     plugin :flash
-
-    plugin :view
-    plugin :page
-
     def name
       :<%= config[:underscored_app_name] %>
     end
+    plugin :dry_view
 
     route do |r|
       r.multi_route

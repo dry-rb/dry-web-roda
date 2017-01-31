@@ -6,7 +6,6 @@ Main::Container.finalize! do |container|
 end
 
 require 'main/application'
-require 'main/view'
 require 'main/requests'
 
 Main::Container.require('requests/**/*.rb')
