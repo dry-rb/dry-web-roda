@@ -1,6 +1,0 @@
-require "<%= config[:underscored_umbrella_name] %>/page"
-
-module <%= config[:camel_cased_app_name] %>
-  class Page < <%= config[:camel_cased_umbrella_name] %>::Page
-  end
-end

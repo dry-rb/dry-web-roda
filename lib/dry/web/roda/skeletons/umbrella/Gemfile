@@ -23,7 +23,7 @@ gem "dry-struct"
 gem "dry-transaction"
 gem "dry-types"
 gem "dry-validation"
-gem "dry-view"
+gem "dry-view", ">= 0.2.2"
 gem "slim"
 
 group :development, :test do
