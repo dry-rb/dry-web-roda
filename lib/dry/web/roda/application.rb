@@ -36,6 +36,10 @@ module Dry
         def self.root
           config.container.config.root
         end
+
+        def notifications
+          self.class[:notifications]
+        end
       end
     end
   end
