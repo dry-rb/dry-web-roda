@@ -14,6 +14,12 @@ module Dry
         plugin :multi_route
         plugin :flow
 
+        def self.configure(&block)
+          container = super
+          use(container[:rack_monitor])
+          container
+        end
+
         def self.resolve(name)
           config.container[name]
         end
