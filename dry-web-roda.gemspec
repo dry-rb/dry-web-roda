@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.1.0'
 
   spec.add_runtime_dependency "dry-web", "~> 0.5"
+  spec.add_runtime_dependency "dry-monitor"
   spec.add_runtime_dependency "dry-configurable", "~> 0.1"
   spec.add_runtime_dependency "inflecto", "~> 0.0"
   spec.add_runtime_dependency "roda", "~> 2.14"
