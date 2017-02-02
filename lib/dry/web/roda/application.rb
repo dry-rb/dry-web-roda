@@ -13,6 +13,7 @@ module Dry
 
         plugin :multi_route
         plugin :flow
+        plugin :error_handler
 
         def self.configure(&block)
           container = super
