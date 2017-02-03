@@ -6,6 +6,7 @@ module <%= config[:camel_cased_app_name] %>
     configure do
       config.name = :core
       config.settings_loader = <%= config[:camel_cased_app_name] %>::Settings
+      config.listeners = true
     end
 
     load_paths! "lib", "system"

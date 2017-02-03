@@ -1,5 +1,0 @@
-require "logger"
-
-<%= config[:camel_cased_app_name] %>::Container.finalize :logger do |container|
-  container.register "logger", Logger.new(container.root.join("log/#{container.config.env}.log"))
-end
