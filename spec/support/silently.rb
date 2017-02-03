@@ -4,7 +4,7 @@ module RSpec
   module Support
     def self.silently(cmd, via: :system)
       out    = Tempfile.new("dry-web-roda-out")
-      result = ::Kernel.__send__(via, cmd, out: out.path, err: out.path)
+      result = ::Kernel.__send__(via,RSpec::Support::Env.env, cmd, out: out.path, err: out.path)
 
       return if result
 
