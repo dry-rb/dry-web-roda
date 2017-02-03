@@ -26,7 +26,7 @@ module RSpec
         end
       end
 
-      def run_app(port = 3333)
+      def run_app(port = 30333)
         pid = fork {
           silently "bundle exec rackup config.ru -p #{port}", via: :exec
         }
