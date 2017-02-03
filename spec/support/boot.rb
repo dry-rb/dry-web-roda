@@ -28,7 +28,7 @@ module RSpec
 
       def run_app(port = 30333)
         pid = fork {
-          silently "bundle exec rackup config.ru -p #{port}", via: :exec
+          silently "bundle exec rackup -o 0.0.0.0 -p #{port} config.ru", via: :exec
         }
 
         WaitUtil.wait_for_service "app", "0.0.0.0", port, timeout_sec: 10
