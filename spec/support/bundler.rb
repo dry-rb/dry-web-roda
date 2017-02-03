@@ -41,6 +41,10 @@ module RSpec
 
         content = ["source 'file://#{cache}'\n"] + filtered_content + gems.map { |g| "gem #{g}\n" }
 
+        puts
+        puts content
+        puts
+
         rewrite(path, content)
       end
 

@@ -1,10 +1,9 @@
 language: ruby
 dist: trusty
-sudo: required
+sudo: false
 cache: bundler
-bundler_args: --without tools
 script:
-  - bundle exec rake spec
+  - ./script/ci
 rvm:
   - 2.1
   - 2.2
