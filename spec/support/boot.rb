@@ -22,7 +22,7 @@ module RSpec
         private
 
         def uri(path)
-          URI("http://localhost:#{port}#{path}")
+          URI("http://0.0.0.0:#{port}#{path}")
         end
       end
 
@@ -31,7 +31,7 @@ module RSpec
           silently "bundle exec rackup config.ru -p #{port}", via: :exec
         }
 
-        WaitUtil.wait_for_service "app", "localhost", port, timeout_sec: 10
+        WaitUtil.wait_for_service "app", "0.0.0.0", port, timeout_sec: 10
         yield App.new(port)
       ensure
         Process.kill "TERM", pid
