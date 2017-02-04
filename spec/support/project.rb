@@ -17,8 +17,10 @@ module RSpec
             # TODO: determine if we need this
             # setup_gemfile(gems: gem_dependencies(args), exclude_gems: args.fetch(:exclude_gems, []))
             # setup_gemfile(gems: ["'dry-web-roda', path: '#{ root }'"], exclude_gems: ['dry-web-roda'])
+            puts ".. bundle installing for project #{name}"
             out = bundle_install
             puts out
+            puts ".. done!"
             yield
           end
         end

@@ -21,8 +21,7 @@ module RSpec
         return if cache.exist?
 
         with_clean_env do
-          # TODO: see if we need this
-          # RSpec::Support.silently "./script/setup"
+          RSpec::Support.silently "./script/setup"
         end
       end
 
