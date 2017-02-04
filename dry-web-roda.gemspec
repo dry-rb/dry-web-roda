@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = '>= 2.1.0'
+  spec.required_ruby_version = '>= 2.2.0'
 
   spec.add_runtime_dependency "dry-web", "~> 0.6", ">= 0.6.0"
   spec.add_runtime_dependency "dry-monitor"
@@ -28,8 +28,10 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "roda-flow", "~> 0.3"
   spec.add_runtime_dependency "thor", "~> 0.19"
 
+  spec.add_development_dependency "aruba"
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 11.0"
   spec.add_development_dependency "rspec", "~> 3.4"
   spec.add_development_dependency "capybara", "~> 2.5"
+  spec.add_development_dependency "waitutil"
 end

@@ -1,0 +1,42 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+remove_bundler_cache() {
+  local pwd=$PWD
+  local cache="$pwd/vendor/cache"
+
+  rm -rf $cache
+}
+
+# We may need something like this in future if we use github checkouts of gems
+# (see `uninstall_hanami_gems()` in hanami/hanami's teardown script)
+#
+# uninstall_gems_from_checkouts() { }
+
+bundle_install() {
+  bundle install > /dev/null
+}
+
+advertise_start() {
+  echo -en "Cleaning up.."
+}
+
+advertise_end() {
+  echo " done"
+}
+
+main() {
+  local ci=${CI:-false}
+
+  if [ "$ci" = true ] ; then
+    echo "Running on CI, skipping cleanup"
+  else
+    advertise_start &&
+      remove_bundler_cache &&
+      bundle_install &&
+      advertise_end
+  fi
+}
+
+main

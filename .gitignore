@@ -4,10 +4,13 @@
 /coverage/
 /InstalledFiles
 /pkg/
-/spec/reports/
 /test/tmp/
 /test/version_tmp/
 /tmp/
+
+## Testing
+/spec/reports/
+/spec/examples.txt
 
 ## Documentation cache and generated files:
 /.yardoc/

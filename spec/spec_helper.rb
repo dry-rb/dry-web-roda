@@ -1,24 +1,22 @@
-# encoding: utf-8
+require "byebug"
 
-if RUBY_ENGINE == "rbx"
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
-end
+SPEC_ROOT = Pathname(__dir__)
+TEST_APP_NAME = "test_app".freeze
 
-begin
-  require 'byebug'
-rescue LoadError; end
-
-require 'pathname'
-require 'rack/test'
-require 'slim'
-
-ENV['RACK_ENV'] = 'test'
-
-SPEC_ROOT = Pathname(__FILE__).dirname
+Dir[SPEC_ROOT.join("support/*.rb").to_s].each { |f| require f }
 
 RSpec.configure do |config|
   config.disable_monkey_patching!
 
-  config.include Rack::Test::Methods, type: :request
+  config.example_status_persistence_file_path = "spec/examples.txt"
+
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
+
+  config.default_formatter = "doc" if config.files_to_run.one?
+
+  config.profile_examples = 10
+
+  config.order = :random
+  Kernel.srand config.seed
 end
