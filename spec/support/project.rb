@@ -14,16 +14,8 @@ module RSpec
           create_project name
 
           within_project_directory(name) do
-            # TODO: determine if we need this
-            # setup_gemfile(gems: gem_dependencies(args), exclude_gems: args.fetch(:exclude_gems, []))
-            # setup_gemfile(gems: ["'dry-web-roda', path: '#{ root }'"], exclude_gems: ['dry-web-roda'])
-
             setup_gemfile
-
-            puts ".. bundle installing for project #{name}"
-            out = bundle_install
-            puts out
-            puts ".. done!"
+            bundle_install
             yield
           end
         end
