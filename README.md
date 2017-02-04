@@ -19,7 +19,7 @@ dry-web-roda offers a CLI for generating new projects:
 $ dry-web-roda new <project_name>
 ```
 
-And building apps within projects:
+And building sub-apps within projects:
 
 ```sh
 $ dry-web-roda generate app <my_sub_app_name>
@@ -32,3 +32,9 @@ See `LICENSE` file.
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/dry-rb/dry-web-roda.
+
+## Acknowledgements
+
+The support code for testing the CLI and generated app are derived from
+[hanami/hanami](https://github.com/hanami/hanami). Thank you to Luca and the
+Hanami team!
