@@ -14,46 +14,12 @@ bundle_package() {
   echo ""
 }
 
-# TODO: this could actually just search for dirs and build based on name
-install_from_checkouts() {
-  echo ""
-}
+# We may need something like this in future if we use github checkouts of gems
+# (see `install_hanami_frameworks()` in hanami/hanami's setup script)
+#
+# install_from_git_checkouts() { }
 
-install_hanami_frameworks_old() {
-  declare -a frameworks=(utils validations router helpers model view controller mailer assets)
-
-  for framework in "${frameworks[@]}"
-  do
-    local directory=($cache/$framework-*)
-    pushd $directory > /dev/null
-
-      find . -name \*.gem -delete
-      gem build hanami-$framework.gemspec > /dev/null
-
-      local pkg=(hanami-$framework-*.gem)
-
-      gem install $pkg > /dev/null
-      mv $pkg $cache
-
-      echo "Installed $pkg (from $directory)"
-
-    popd > /dev/null
-  done
-  echo ""
-}
-
-install_hanami() {
-  bundle exec rake build
-  local pkg=($pwd/pkg/hanami-*.gem)
-
-  gem install $pkg > /dev/null
-  mv $pkg $cache
-
-  echo "Installed $pkg (from $(git rev-parse HEAD))"
-  echo ""
-}
-
-install_base() {
+install_base_gem() {
   bundle exec rake build
   local pkg=($pwd/pkg/dry-web-roda-*.gem)
 
@@ -74,8 +40,7 @@ generate_index() {
 main() {
   cleanup &&
     bundle_package &&
-    install_from_checkouts &&
-    install_base &&
+    install_base_gem &&
     generate_index
 }
 

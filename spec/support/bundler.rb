@@ -6,9 +6,6 @@ require_relative 'files'
 module RSpec
   module Support
     module Bundler
-      HANAMI_GEMS_PREFIX = "hanami-".freeze
-      HANAMI_GEMS = %w(utils validations router helpers model view controller mailer assets).freeze
-
       def self.root
         Pathname.new(__dir__).join("..", "..")
       end
@@ -40,12 +37,6 @@ module RSpec
 
         content = ["source 'file://#{cache}'\n"] + filtered_content + gems.map { |g| "gem #{g}\n" }
 
-        puts ".. setting up gemfile"
-        puts
-        puts content
-        puts
-        puts ".. done!"
-
         rewrite(path, content)
       end
 
@@ -60,9 +51,9 @@ module RSpec
       def bundle(cmd, env: nil, &blk)
         ruby_bin   = which("ruby")
         bundle_bin = which("bundle")
-        hanami_env = "HANAMI_ENV=#{env} " unless env.nil?
+        rack_env = "RACK_ENV=#{env} " unless env.nil?
 
-        system_exec("#{hanami_env}#{ruby_bin} -I#{load_paths} #{bundle_bin} #{cmd}", &blk)
+        system_exec("#{rack_env}#{ruby_bin} -I#{load_paths} #{bundle_bin} #{cmd}", &blk)
       end
 
       # Adapted from Bundler source code
