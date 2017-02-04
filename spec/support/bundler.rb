@@ -44,7 +44,7 @@ module RSpec
         puts
         puts content
         puts
-        puts ".. done"
+        puts ".. done!"
 
         rewrite(path, content)
       end
