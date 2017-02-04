@@ -6,6 +6,8 @@ gem 'pry'
 gem 'byebug', platform: :mri
 gem 'codeclimate-test-reporter', platform: :rbx
 
+gem "builder" # For generating gem indexes
+
 # Generated application dependencies
 gem "dry-web", ">= 0.6.0"
 gem "puma"
