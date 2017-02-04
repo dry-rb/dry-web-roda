@@ -33,7 +33,7 @@ module RSpec
         }
 
         WaitUtil.wait_for_service "app", "0.0.0.0", port, timeout_sec: 10
-        yield App.new(port)
+        yield RunningApp.new(port)
       ensure
         Process.kill "TERM", pid
         Process.wait pid
