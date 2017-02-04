@@ -27,7 +27,7 @@ gem "dry-view", ">= 0.2.2"
 gem "slim"
 
 group :development, :test do
-  gem "pry-byebug"
+  gem "pry-byebug", platform: :mri
 end
 
 group :test do

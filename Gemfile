@@ -23,7 +23,7 @@ gem "dry-types"
 gem "dry-validation"
 gem "dry-view", ">= 0.2.2"
 gem "slim"
-gem "pry-byebug"
+gem "pry-byebug", platform: :mri
 gem "capybara"
 gem "capybara-screenshot"
 gem "database_cleaner"
