@@ -21,7 +21,7 @@ bundle_package() {
 
 install_base_gem() {
   bundle exec rake build
-  local pkg=($pwd/pkg/dry-web-roda-*.gem)
+  local pkg=`ls $pwd/pkg/*.gem | sort -r | head -1`
 
   gem install $pkg > /dev/null
   mv $pkg $cache
