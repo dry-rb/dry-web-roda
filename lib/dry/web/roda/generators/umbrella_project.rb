@@ -7,11 +7,11 @@ module Dry
   module Web
     module Roda
       module Generators
-        class Umbrella
+        class UmbrellaProject
           attr_reader :generate, :sub_app_generator
 
           def initialize
-            @generate = Generate.new("umbrella")
+            @generate = Generate.new("umbrella_project")
             @sub_app_generator = Generators::SubApp.new
           end
 
