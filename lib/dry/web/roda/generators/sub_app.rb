@@ -5,11 +5,11 @@ module Dry
   module Web
     module Roda
       module Generators
-        class App
+        class SubApp
           attr_reader :generate
 
           def initialize
-            @generate = Dry::Web::Roda::Generate.new("app")
+            @generate = Dry::Web::Roda::Generate.new("sub_app")
           end
 
           def call(target_dir, options = {})
