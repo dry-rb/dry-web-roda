@@ -1,0 +1,11 @@
+require "byebug" if ENV["RACK_ENV"] == "development"
+require "pry" if ENV["RACK_ENV"] == "development"
+
+require_relative "<%= config[:underscored_app_name] %>/container"
+
+<%= config[:camel_cased_app_name] %>::Container.finalize!
+
+require "<%= config[:underscored_app_name] %>/application"
+
+require "<%= config[:underscored_app_name] %>/transactions"
+<%= config[:camel_cased_app_name] %>::Container.require "transactions/**/*.rb"

@@ -1,0 +1,29 @@
+require "dry/web/roda/application"
+require_relative "container"
+
+module <%= config[:camel_cased_app_name] %>
+  class Application < Dry::Web::Roda::Application
+    configure do |config|
+      config.container = Container
+      config.routes = "web/routes".freeze
+    end
+
+    opts[:root] = Pathname(__FILE__).join("../..").realpath.dirname
+
+    use Rack::Session::Cookie, key: "<%= config[:underscored_app_name] %>.session", secret: <%= config[:camel_cased_app_name] %>::Container.settings.session_secret
+
+    plugin :csrf, raise: true
+    plugin :flash
+    plugin :dry_view
+
+    route do |r|
+      r.multi_route
+
+      r.root do
+        r.view "welcome"
+      end
+    end
+
+    load_routes!
+  end
+end
