@@ -9,9 +9,11 @@ module RSpec
     module Project
       private
 
-      def with_project(name = "sandbox")
+      KNOWN_ARGUMENTS = [:arch].freeze
+
+      def with_project(name = "sandbox", **args)
         with_tmp_directory do
-          create_project name
+          create_project name, args
 
           within_project_directory(name) do
             setup_gemfile
@@ -36,8 +38,18 @@ module RSpec
         end
       end
 
-      def create_project(name)
-        silently "dry-web-roda new #{name}"
+      def create_project(name, args)
+        silently "dry-web-roda new #{name} #{_create_project_args(args)}"
+      end
+
+      def _create_project_args(args)
+        return if args.empty?
+
+        flags = args.dup.keep_if { |k, _| KNOWN_ARGUMENTS.include?(k) }
+
+        flags.map { |arg, value|
+          "--#{arg}=#{value}"
+        }.join(" ")
       end
     end
   end
