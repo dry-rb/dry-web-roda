@@ -1,4 +1,5 @@
 require 'open3'
+require 'pathname'
 require_relative 'env'
 require_relative 'silently'
 require_relative 'files'
