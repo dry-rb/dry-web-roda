@@ -13,16 +13,28 @@
 
 Integration between dry-web and roda.
 
-dry-web-roda offers a CLI for generating new projects:
+dry-web-roda offers a CLI for generating new projects.
+
+### Umbrella projects
+
+To generate a new _umbrella project_ (functionality divided into sub-apps):
 
 ```sh
-$ dry-web-roda new <project_name>
+$ dry-web-roda new <your_project_name>
 ```
 
-And building sub-apps within projects:
+And to generate sub-apps within your project:
 
 ```sh
-$ dry-web-roda generate app <my_sub_app_name>
+$ dry-web-roda generate sub_app <your_sub_app_name> --umbrella=<your_project_name>
+```
+
+### Flat projects
+
+To generate a new _flat project_ (a simpler architecture, with a single module for your entire app):
+
+```sh
+$ dry-web-roda new <your_project_name> --arch=flat
 ```
 
 ## LICENSE
