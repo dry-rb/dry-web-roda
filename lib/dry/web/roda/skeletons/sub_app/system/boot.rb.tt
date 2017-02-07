@@ -1,7 +1,6 @@
 require_relative "<%= config[:underscored_app_name] %>/container"
 
-<%= config[:camel_cased_app_name] %>::Container.finalize! do |container|
-end
+<%= config[:camel_cased_app_name] %>::Container.finalize!
 
 require "<%= config[:underscored_app_name] %>/application"
 require "<%= config[:underscored_app_name] %>/transactions"
