@@ -1,0 +1,15 @@
+module TestHelpers
+  module_function
+
+  def app
+    <%= config[:camel_cased_app_name] %>::Application.app
+  end
+
+  def rom
+    <%= config[:camel_cased_app_name] %>::Container["persistence.rom"]
+  end
+
+  def db_connection
+    rom.gateways[:default].connection
+  end
+end
