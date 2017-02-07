@@ -4,8 +4,8 @@ require_relative "container"
 module <%= config[:camel_cased_app_name] %>
   class Application < Dry::Web::Roda::Application
     configure do |config|
-      config.routes = "web/routes".freeze
       config.container = Container
+      config.routes = "web/routes".freeze
     end
 
     opts[:root] = Pathname(__FILE__).join("../..").realpath.dirname
