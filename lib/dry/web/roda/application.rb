@@ -16,9 +16,9 @@ module Dry
         plugin :error_handler
 
         def self.configure(&block)
-          container = super
-          use(container[:rack_monitor])
-          container
+          super.tap do
+            use(config.container[:rack_monitor])
+          end
         end
 
         def self.resolve(name)
