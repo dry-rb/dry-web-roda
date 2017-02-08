@@ -1,3 +1,24 @@
+# 0.6.1 - 2017-02-08
+
+### Added
+
+- Add new flat project generator: `dry-web-roda new <your_app> --arch=flat` (timriley)
+- In generated projects, use dry-monitor to log SQL queries (timriley)
+
+### Changed
+
+- Renamed sub-app generator from `dry-web-roda generate app` to `dry-web-roda generate sub_app` (timriley)
+
+### Fixed
+
+- Ensure dry-monitor is set up in `Application` regardless of the order in which the application's configs are applied (timriley)
+
+# 0.6.1 - 2017-02-03
+
+### Added
+
+- In generated projects, integrate with dry-monitor (via dry-web) for centralized application logging and error reporting (solnic)
+
 # 0.5.1 - 2016-12-27
 
 ### Fixed
