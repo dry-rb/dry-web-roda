@@ -2,8 +2,9 @@
 
 ### Added
 
-- Add new flat project generator: `dry-web-roda new <your_app> --arch=flat` (timriley)
+- In generated projects, set up dry-monitor for request logging (timriley)
 - In generated projects, use dry-monitor to log SQL queries (timriley)
+- Add new flat project generator: `dry-web-roda new <your_app> --arch=flat` (timriley)
 
 ### Changed
 
