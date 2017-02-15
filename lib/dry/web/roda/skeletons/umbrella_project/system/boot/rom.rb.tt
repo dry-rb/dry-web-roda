@@ -3,6 +3,8 @@
     init do
       require "sequel"
       require "rom"
+      
+      use :monitor
 
       Sequel.database_timezone = :utc
       Sequel.application_timezone = :local
