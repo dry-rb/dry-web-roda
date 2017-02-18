@@ -1,4 +1,5 @@
 require "inflecto"
+require "securerandom"
 require "dry/web/roda/generate"
 
 module Dry

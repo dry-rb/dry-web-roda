@@ -33,3 +33,5 @@ Gemfile.lock
 
 .byebug_history
 /vendor/cache/
+
+.idea
