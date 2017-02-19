@@ -1,6 +1,6 @@
-require "inflecto"
 require "securerandom"
 require "dry/web/roda/generate"
+require "dry/web/roda/generators/inflections"
 
 module Dry
   module Web
@@ -21,8 +21,8 @@ module Dry
 
           def prepare_scope(target_dir)
             {
-              underscored_app_name: Inflecto.underscore(target_dir),
-              camel_cased_app_name: Inflecto.camelize(target_dir)
+              underscored_app_name: Inflections.underscored_name(target_dir),
+              camel_cased_app_name: Inflections.camel_cased_name(target_dir)
             }
           end
         end
