@@ -1,5 +1,5 @@
-require "inflecto"
 require "dry/web/roda/generate"
+require "dry/web/roda/generators/inflections"
 
 module Dry
   module Web
@@ -23,10 +23,10 @@ module Dry
 
           def prepare_scope(target_dir, umbrella_name)
             {
-              underscored_app_name: Inflecto.underscore(target_dir),
-              camel_cased_app_name: Inflecto.camelize(target_dir),
-              underscored_umbrella_name: Inflecto.underscore(umbrella_name),
-              camel_cased_umbrella_name: Inflecto.camelize(umbrella_name),
+              underscored_app_name: Inflections.underscored_name(target_dir),
+              camel_cased_app_name: Inflections.camel_cased_name(target_dir),
+              underscored_umbrella_name: Inflections.underscored_name(umbrella_name),
+              camel_cased_umbrella_name: Inflections.camel_cased_name(umbrella_name),
             }
           end
         end
