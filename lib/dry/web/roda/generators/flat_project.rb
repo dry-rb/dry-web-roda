@@ -20,9 +20,10 @@ module Dry
           private
 
           def prepare_scope(target_dir)
+            underscored_app_name = Inflecto.underscore(target_dir)
             {
-              underscored_app_name: Inflecto.underscore(target_dir),
-              camel_cased_app_name: Inflecto.camelize(target_dir)
+              underscored_app_name: underscored_app_name,
+              camel_cased_app_name: Inflecto.camelize(underscored_app_name)
             }
           end
         end
