@@ -1,3 +1,10 @@
+# 0.6.2 - 2017-02-20
+
+### Fixed
+
+- Support dashed names when generating projects, e.g. `dry-web-roda new my-app` (radar & timriley)
+- Require securerandom for generating session keys in new flat architecture projects (alexandru-calinoiu)
+
 # 0.6.1 - 2017-02-08
 
 ### Added
