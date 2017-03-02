@@ -1,3 +1,9 @@
+# 0.6.3 - 2017-03-02
+
+### Changed
+
+- Use the newly-released rom/rom-sql instrumentation plugin to generate SQL logs, rather than a local monkey patch (timriley)
+
 # 0.6.2 - 2017-02-20
 
 ### Fixed
