@@ -3,7 +3,7 @@
     init do
       require "sequel"
       require "rom"
-      
+
       use :monitor
 
       Sequel.database_timezone = :utc
@@ -14,6 +14,10 @@
         persistence.settings.database_url,
         extensions: [:error_sql]
       )
+
+      rom_config.plugin(:sql, relations: :instrumentation) do |p|
+        p.notifications = notifications
+      end
 
       persistence.register("config", rom_config)
     end
