@@ -15,6 +15,10 @@
         extensions: [:error_sql]
       )
 
+      rom_config.plugin(:sql, relations: :instrumentation) do |p|
+        p.notifications = notifications
+      end
+
       persistence.register("config", rom_config)
     end
 
