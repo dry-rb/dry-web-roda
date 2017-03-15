@@ -1,8 +1,0 @@
-# Ignore secrets in app settings (copy a version to settings.example.yml if you want to check one in)
-/config/settings.yml
-
-# RSpec
-/spec/examples.txt
-
-# Logs
-/log/*.log

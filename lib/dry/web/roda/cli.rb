@@ -13,7 +13,7 @@ module Dry
             Generators::UmbrellaProject.new.(app_name)
           when "flat"
             require "dry/web/roda/generators/flat_project"
-            Generators::FlatProject.new.(app_name)
+            Generators::FlatProject.new(app_name).call
           end
         end
 

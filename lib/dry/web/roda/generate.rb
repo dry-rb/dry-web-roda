@@ -5,48 +5,25 @@ module Dry
   module Web
     module Roda
       class Generate
-        SKELETONS_DIR = "skeletons".freeze
+        TEMPLATES_DIR = "templates".freeze
+        SOURCE_DIR = Pathname(__FILE__).dirname.join(TEMPLATES_DIR)
 
-        attr_reader :source_dir
-        attr_reader :processor
+        attr_reader :processor, :target_dir
 
-        def initialize(skeleton_name)
-          @source_dir = Pathname(__FILE__).dirname.join(SKELETONS_DIR).join(skeleton_name)
-
+        def initialize(target_dir)
+          @target_dir = target_dir
           @processor = Class.new(Thor) do
             include Thor::Actions
           end.new
-          @processor.class.source_root source_dir
+          @processor.class.source_root SOURCE_DIR
         end
 
-        def call(target_dir, scope = {})
-          target_dir = Pathname.getwd + target_dir
-          source_files = Dir[source_dir.join("**/{.,}*")]
+        def call(source, target, options)
+          target_dir = Pathname.getwd + @target_dir
+          target_file = target_dir + target
+          template_file = SOURCE_DIR.each_child(false).find { |f| f.to_s == source }
 
-          source_files.select { |f| File.file?(f) }.each do |source_file|
-            source_file = Pathname(source_file)
-            relative_source_file = source_file.relative_path_from(source_dir)
-            target_file = target_dir + relative_source_file
-
-            if scope.any?
-              target_file = target_file.to_s.gsub(/__#{Regexp.union(scope.keys.map(&:to_s))}__/) { |match|
-                scope_key = match.gsub(/^__/, "").gsub(/__$/, "")
-                scope.fetch(scope_key.to_sym)
-              }
-            end
-
-            if relative_source_file.extname == Thor::TEMPLATE_EXTNAME
-              target_file = target_file.sub(/#{Thor::TEMPLATE_EXTNAME}$/, "")
-
-              processor.template relative_source_file, target_file, scope
-            else
-              processor.copy_file relative_source_file, target_file
-            end
-
-            if source_file.file? && source_file.executable?
-              FileUtils.chmod "a+x", target_file
-            end
-          end
+          processor.template template_file, target_file, options
         end
       end
     end

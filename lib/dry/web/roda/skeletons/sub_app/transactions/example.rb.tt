@@ -1,9 +1,0 @@
-require "<%= config[:underscored_app_name] %>/transactions"
-
-<%= config[:camel_cased_app_name] %>::Transactions.define do |t|
-  # Define your dry-transaction objects here:
-  #
-  # t.define "<%= config[:underscored_app_name] %>.transactions.users.sign_up" do
-  #   step :persist, with: "<%= config[:underscored_app_name] %>.users.operations.sign_up"
-  # end
-end
