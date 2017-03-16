@@ -23,7 +23,18 @@ module Dry
           target_file = target_dir + target
           template_file = SOURCE_DIR.each_child(false).find { |f| f.to_s == source }
 
+          template_file = find_template_inside_folders(source) unless template_file
+
           processor.template template_file, target_file, options
+        end
+
+        def find_template_inside_folders(source)
+          directories = SOURCE_DIR.each_child.select { |f| f.directory? }
+          file = nil
+          directories.each do |directory|
+            file ||= directory.each_child(false).find { |f| f == Pathname(source).basename }
+          end
+          file.expand_path(SOURCE_DIR + 'subapp')
         end
       end
     end

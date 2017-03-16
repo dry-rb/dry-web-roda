@@ -22,15 +22,15 @@ module Dry
 
           private
 
+          def destination
+            target_dir
+          end
+
           def prepare_scope
             {
               underscored_app_name: underscored_app_name,
               camel_cased_app_name: Inflections.camel_cased_name(target_dir)
             }
-          end
-
-          def underscored_app_name
-            @underscored_app_name ||= Inflections.underscored_name(target_dir)
           end
         end
       end
