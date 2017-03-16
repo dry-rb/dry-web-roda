@@ -89,12 +89,6 @@ module Dry
             add_template('example.rb.tt', 'transactions/example.rb')
           end
 
-          def add_web
-            add_template('example_routes.rb.tt', 'web/routes/example.rb')
-            add_template('application.html.slim', 'web/templates/layouts/application.html.slim')
-            add_template('welcome.html.slim', 'web/templates/welcome.html.slim')
-          end
-
           def add_config_files
             add_template('.gitignore', '.gitignore')
             add_template('Gemfile', 'Gemfile')
