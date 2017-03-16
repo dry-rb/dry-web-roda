@@ -93,6 +93,7 @@ module Dry
             add_template('.gitignore', '.gitignore')
             add_template('Gemfile', 'Gemfile')
             add_template('Rakefile.tt', 'Rakefile')
+            add_template('config.ru.tt', 'config.ru')
             add_template('README.md.tt', 'README.md')
           end
         end
