@@ -9,7 +9,7 @@ begin
 rescue LoadError
 end
 
-require_relative "system/<%= config[:underscored_app_name] %>/container"
+require_relative "system/<%= config[:underscored_project_name] %>/container"
 
 require "rom/sql/rake_task"
 require "sequel"

@@ -1,6 +1,6 @@
 require "slim"
 require "dry-view"
-require "<%= config[:underscored_app_name] %>/container"
+require "<%= config[:underscored_project_name] %>/container"
 
 module <%= config[:camel_cased_app_name] %>
   class ViewController < Dry::View::Controller

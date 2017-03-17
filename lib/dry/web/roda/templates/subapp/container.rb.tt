@@ -11,10 +11,10 @@ module <%= config[:camel_cased_app_name] %>
 
       config.logger = <%= config[:camel_cased_umbrella_name] %>::Container[:logger]
 
-      config.default_namespace = "<%= config[:underscored_app_name] %>"
+      config.default_namespace = "<%= config[:underscored_project_name] %>"
 
       config.auto_register = %w[
-        lib/<%= config[:underscored_app_name] %>
+        lib/<%= config[:underscored_project_name] %>
       ]
     end
 

@@ -1,4 +1,4 @@
-require "<%= config[:underscored_app_name] %>/transactions"
+require "<%= config[:underscored_project_name] %>/transactions"
 
 <%= config[:camel_cased_app_name] %>::Transactions.define do |t|
   # Define your dry-transaction objects here:

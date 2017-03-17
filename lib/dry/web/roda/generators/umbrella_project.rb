@@ -1,5 +1,4 @@
 require "securerandom"
-require "dry/web/roda/generators/inflections"
 require "dry/web/roda/generators/flat_project"
 require "dry/web/roda/generators/sub_app"
 
@@ -14,7 +13,7 @@ module Dry
               Generators::SubApp.new("main", umbrella: target_dir).call
             end
           end
-          
+
         end
       end
     end

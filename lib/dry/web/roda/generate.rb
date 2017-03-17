@@ -8,24 +8,25 @@ module Dry
         TEMPLATES_DIR = "templates".freeze
         SOURCE_DIR = Pathname(__FILE__).dirname.join(TEMPLATES_DIR)
 
-        attr_reader :processor, :target_dir
+        attr_reader :processor, :target_dir, :template_scope
 
-        def initialize(target_dir)
+        def initialize(target_dir, template_scope)
           @target_dir = target_dir
+          @template_scope = template_scope
           @processor = Class.new(Thor) do
             include Thor::Actions
           end.new
           @processor.class.source_root SOURCE_DIR
         end
 
-        def call(source, target, options)
+        def call(source, target)
           target_dir = Pathname.getwd + @target_dir
           target_file = target_dir + target
           template_file = SOURCE_DIR.each_child(false).find { |f| f.to_s == source }
 
           template_file = find_template_inside_folders(source) unless template_file
 
-          processor.template template_file, target_file, options
+          processor.template template_file, target_file, template_scope
         end
 
         def find_template_inside_folders(source)

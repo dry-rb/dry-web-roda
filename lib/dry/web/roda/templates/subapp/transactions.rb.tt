@@ -1,7 +1,7 @@
 require "dry-transaction"
 require "<%= config[:underscored_umbrella_name] %>/transactions"
-require "<%= config[:underscored_app_name] %>/container"
-require "<%= config[:underscored_app_name] %>/import"
+require "<%= config[:underscored_project_name] %>/container"
+require "<%= config[:underscored_project_name] %>/import"
 
 module <%= config[:camel_cased_app_name] %>
   class Transactions < <%= config[:camel_cased_umbrella_name] %>::Transactions

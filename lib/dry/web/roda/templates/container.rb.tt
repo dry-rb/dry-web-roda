@@ -4,13 +4,13 @@ require_relative "settings"
 module <%= config[:camel_cased_app_name] %>
   class Container < Dry::Web::Umbrella
     configure do
-      config.name = :<%= config[:underscored_app_name] %>
-      config.default_namespace = "<%= config[:underscored_app_name] %>"
+      config.name = :<%= config[:underscored_project_name] %>
+      config.default_namespace = "<%= config[:underscored_project_name] %>"
       config.settings_loader = <%= config[:camel_cased_app_name] %>::Settings
       config.listeners = true
 
       config.auto_register = %w[
-        lib/<%= config[:underscored_app_name] %>
+        lib/<%= config[:underscored_project_name] %>
       ]
     end
 

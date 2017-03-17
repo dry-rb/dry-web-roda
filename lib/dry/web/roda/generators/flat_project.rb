@@ -1,13 +1,13 @@
 require "securerandom"
 require "dry/web/roda/generators/inflections"
-require "dry/web/roda/generators/abstract_project"
+require "dry/web/roda/generators/abstract_generator"
 
 module Dry
   module Web
     module Roda
       module Generators
-        class FlatProject < AbstractProject
-          def map_templates
+        class FlatProject < AbstractGenerator
+          def populate_templates
             add_bin
             add_config
             add_db
@@ -26,9 +26,9 @@ module Dry
             target_dir
           end
 
-          def prepare_scope
+          def template_scope
             {
-              underscored_app_name: underscored_app_name,
+              underscored_project_name: underscored_project_name,
               camel_cased_app_name: Inflections.camel_cased_name(target_dir)
             }
           end
@@ -48,8 +48,8 @@ module Dry
           end
 
           def add_lib
-            add_template('welcome.rb.tt', "lib/#{underscored_app_name}/views/welcome.rb")
-            add_template('.keep', "lib/#{underscored_app_name}/.keep")
+            add_template('welcome.rb.tt', "lib/#{underscored_project_name}/views/welcome.rb")
+            add_template('.keep', "lib/#{underscored_project_name}/.keep")
             add_template('.keep', 'lib/persistance/commands/.keep')
             add_template('.keep', 'lib/persistance/relations/.keep')
             add_template('types.rb', 'lib/types.rb')
@@ -74,7 +74,7 @@ module Dry
 
           def add_system_app_folder
             %w(application container import repository settings transactions view_context view_controller).each do |file|
-              add_template("#{file}.rb.tt", "system/#{underscored_app_name}/#{file}.rb")
+              add_template("#{file}.rb.tt", "system/#{underscored_project_name}/#{file}.rb")
             end
           end
 
@@ -87,6 +87,12 @@ module Dry
 
           def add_transactions
             add_template('example.rb.tt', 'transactions/example.rb')
+          end
+
+          def add_web
+            add_template('example_routes.rb.tt', 'web/routes/example.rb')
+            add_template('application.html.slim', 'web/templates/layouts/application.html.slim')
+            add_template('welcome.html.slim', 'web/templates/welcome.html.slim')
           end
 
           def add_config_files
