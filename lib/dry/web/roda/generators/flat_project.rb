@@ -1,5 +1,4 @@
 require "securerandom"
-require "dry/web/roda/generators/inflections"
 require "dry/web/roda/generators/abstract_generator"
 
 module Dry

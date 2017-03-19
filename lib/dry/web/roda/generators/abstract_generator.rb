@@ -1,4 +1,5 @@
 require "dry/web/roda/generate"
+require "dry/web/roda/generators/inflections"
 require "dry/web/roda/generators/templatable"
 
 module Dry
