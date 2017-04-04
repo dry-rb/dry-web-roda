@@ -1,20 +1,19 @@
 require "dry/web/roda/generate"
 require "dry/web/roda/generators/inflections"
-require "dry/web/roda/generators/templatable"
 
 module Dry
   module Web
     module Roda
       module Generators
         class AbstractGenerator
-          include Templatable
-          
           attr_reader :target_dir, :options
 
           def initialize(target_dir, options = {})
             @target_dir = target_dir
             @options = options
+            @templates = []
             populate_templates
+            @templates.freeze
           end
 
           def call
@@ -25,6 +24,11 @@ module Dry
           end
 
           private
+          attr_reader :templates
+
+          def add_template(source, target)
+            templates << [source, target]
+          end
 
           def generator
             @generator ||= Generate.new(destination, template_scope)
