@@ -10,10 +10,10 @@ module Dry
           case options[:arch]
           when "umbrella"
             require "dry/web/roda/generators/umbrella_project"
-            Generators::UmbrellaProject.new.(app_name)
+            Generators::UmbrellaProject.new(app_name).call
           when "flat"
             require "dry/web/roda/generators/flat_project"
-            Generators::FlatProject.new.(app_name)
+            Generators::FlatProject.new(app_name).call
           end
         end
 

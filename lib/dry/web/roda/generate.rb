@@ -5,48 +5,46 @@ module Dry
   module Web
     module Roda
       class Generate
-        SKELETONS_DIR = "skeletons".freeze
+        TEMPLATES_DIR = "templates".freeze
+        SOURCE_DIR = Pathname(__FILE__).dirname.join(TEMPLATES_DIR)
 
-        attr_reader :source_dir
-        attr_reader :processor
+        attr_reader :target_dir, :template_scope, :template_files, :processor
 
-        def initialize(skeleton_name)
-          @source_dir = Pathname(__FILE__).dirname.join(SKELETONS_DIR).join(skeleton_name)
+        def initialize(target_dir, template_scope)
+          @target_dir = target_dir
+          @template_scope = template_scope
+          @template_files = Dir[SOURCE_DIR.join('**/{.,}*')]
 
           @processor = Class.new(Thor) do
             include Thor::Actions
           end.new
-          @processor.class.source_root source_dir
+          @processor.class.source_root SOURCE_DIR
         end
 
-        def call(target_dir, scope = {})
-          target_dir = Pathname.getwd + target_dir
-          source_files = Dir[source_dir.join("**/{.,}*")]
+        def call(source, target)
+          source = Pathname(source)
+          aboslute_source_path = source.expand_path(SOURCE_DIR)
+          target_file = get_target_file(target)
+          template_file = template_files.find { |f| f == aboslute_source_path.to_s }
+          template_file = Pathname(template_file)
 
-          source_files.select { |f| File.file?(f) }.each do |source_file|
-            source_file = Pathname(source_file)
-            relative_source_file = source_file.relative_path_from(source_dir)
-            target_file = target_dir + relative_source_file
+          processor.template template_file, target_file, template_scope
 
-            if scope.any?
-              target_file = target_file.to_s.gsub(/__#{Regexp.union(scope.keys.map(&:to_s))}__/) { |match|
-                scope_key = match.gsub(/^__/, "").gsub(/__$/, "")
-                scope.fetch(scope_key.to_sym)
-              }
-            end
+          create_executable(target_file) if executable?(template_file)
+        end
 
-            if relative_source_file.extname == Thor::TEMPLATE_EXTNAME
-              target_file = target_file.sub(/#{Thor::TEMPLATE_EXTNAME}$/, "")
+        private
 
-              processor.template relative_source_file, target_file, scope
-            else
-              processor.copy_file relative_source_file, target_file
-            end
+        def get_target_file(target)
+          Pathname.getwd.join(target_dir, target)
+        end
 
-            if source_file.file? && source_file.executable?
-              FileUtils.chmod "a+x", target_file
-            end
-          end
+        def create_executable(file)
+          FileUtils.chmod "a+x", file
+        end
+
+        def executable?(file)
+          file.file? && file.executable?
         end
       end
     end

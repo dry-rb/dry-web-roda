@@ -1,0 +1,11 @@
+require "<%= config[:underscored_project_name] %>/view_controller"
+
+module <%= config[:camel_cased_app_name] %>
+  module Views
+    class Welcome < <%= config[:camel_cased_app_name] %>::ViewController
+      configure do |config|
+        config.template = "welcome"
+      end
+    end
+  end
+end
