@@ -11,7 +11,7 @@
 [![Test Coverage](https://codeclimate.com/github/dry-rb/dry-web-roda/badges/coverage.svg)][codeclimate]
 [![Inline docs](http://inch-ci.org/github/dry-rb/dry-web-roda.svg?branch=master&style=flat)][inchpages]
 
-Integration between dry-web and roda.
+Integration between [dry-web](https://github.com/dry-rb/dry-web) and [roda](https://github.com/jeremyevans/roda).
 
 dry-web-roda offers a CLI for generating new projects.
 
