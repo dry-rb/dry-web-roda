@@ -34,10 +34,7 @@ namespace :db do
   namespace :structure do
     desc "Dump database structure to db/structure.sql"
     task :dump do
-      require "uri"
-      uri = URI(DB.url)
-
-      dump = `pg_dump -h #{uri.hostname} -s -x -O #{uri.path.tr("/", "")}`
+      dump = `pg_dump -s -x -O #{DB.url}`
       File.open "db/structure.sql", "w" do |file|
         file.write dump
       end
