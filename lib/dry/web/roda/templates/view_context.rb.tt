@@ -1,39 +1,43 @@
+# auto_register: false
+
 module <%= config[:camel_cased_app_name] %>
-  class ViewContext
-    attr_reader :attrs
+  module View
+    class Context
+      attr_reader :attrs
 
-    def initialize(attrs = {})
-      @attrs = attrs
-    end
+      def initialize(attrs = {})
+        @attrs = attrs
+      end
 
-    def csrf_token
-      self[:csrf_token]
-    end
+      def csrf_token
+        self[:csrf_token]
+      end
 
-    def csrf_metatag
-      self[:csrf_metatag]
-    end
+      def csrf_metatag
+        self[:csrf_metatag]
+      end
 
-    def csrf_tag
-      self[:csrf_tag]
-    end
+      def csrf_tag
+        self[:csrf_tag]
+      end
 
-    def flash
-      self[:flash]
-    end
+      def flash
+        self[:flash]
+      end
 
-    def flash?
-      %i[notice alert].any? { |type| flash[type] }
-    end
+      def flash?
+        %i[notice alert].any? { |type| flash[type] }
+      end
 
-    def with(new_attrs)
-      self.class.new(attrs.merge(new_attrs))
-    end
+      def with(new_attrs)
+        self.class.new(attrs.merge(new_attrs))
+      end
 
-    private
+      private
 
-    def [](name)
-      attrs.fetch(name)
+      def [](name)
+        attrs.fetch(name)
+      end
     end
   end
 end

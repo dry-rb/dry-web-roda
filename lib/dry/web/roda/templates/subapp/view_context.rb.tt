@@ -1,6 +1,8 @@
-require "<%= config[:underscored_umbrella_name] %>/view_context"
+require "<%= config[:underscored_umbrella_name] %>/view/context"
 
 module <%= config[:camel_cased_app_name] %>
-  class ViewContext < <%= config[:camel_cased_umbrella_name] %>::ViewContext
+  module View
+    class Context < <%= config[:camel_cased_umbrella_name] %>::View::Context
+    end
   end
 end

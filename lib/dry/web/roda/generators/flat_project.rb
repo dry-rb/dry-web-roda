@@ -47,6 +47,8 @@ module Dry
           end
 
           def add_lib
+            add_template('view_context.rb.tt', "lib/#{underscored_project_name}/view/context.rb")
+            add_template('view_controller.rb.tt', "lib/#{underscored_project_name}/view/controller.rb")
             add_template('welcome.rb.tt', "lib/#{underscored_project_name}/views/welcome.rb")
             add_template('.keep', "lib/#{underscored_project_name}/.keep")
             add_template('.keep', 'lib/persistance/commands/.keep')
@@ -72,7 +74,7 @@ module Dry
           end
 
           def add_system_app_folder
-            %w(application container import repository settings transactions view_context view_controller).each do |file|
+            %w(application container import repository settings transactions).each do |file|
               add_template("#{file}.rb.tt", "system/#{underscored_project_name}/#{file}.rb")
             end
           end
