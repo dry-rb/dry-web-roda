@@ -80,7 +80,7 @@ module Dry
           end
 
           def add_system_boot
-            %w(monitor rom view).each do |file|
+            %w(monitor rom).each do |file|
               add_template("#{file}.rb.tt", "system/boot/#{file}.rb")
             end
             add_template('boot.rb.tt', 'system/boot.rb')

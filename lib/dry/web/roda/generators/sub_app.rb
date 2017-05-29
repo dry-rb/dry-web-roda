@@ -34,7 +34,6 @@ module Dry
               add_template("subapp/#{file}.rb.tt", "system/#{underscored_project_name}/#{file}.rb")
             end
             add_template('import.rb.tt', "system/#{underscored_project_name}/import.rb")
-            add_template('subapp/view.rb.tt', 'system/boot/view.rb')
             add_template('subapp/boot.rb.tt', 'system/boot.rb')
           end
 
