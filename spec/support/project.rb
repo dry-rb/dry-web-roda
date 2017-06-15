@@ -16,7 +16,7 @@ module RSpec
           create_project name, args
 
           within_project_directory(name) do
-            setup_gemfile
+            setup_gemfile gems: ["'dry-web-roda', path: '#{root}'"], exclude_gems: ['dry-web-roda']
             bundle_install
             yield
           end

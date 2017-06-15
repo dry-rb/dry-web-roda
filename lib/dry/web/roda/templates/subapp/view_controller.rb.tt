@@ -1,13 +1,16 @@
+# auto_register: false
+
 require "slim"
 require "dry-view"
 require "<%= config[:underscored_project_name] %>/container"
 
 module <%= config[:camel_cased_app_name] %>
-  class ViewController < Dry::View::Controller
-    configure do |config|
-      config.paths = [Container.root.join("web/templates")]
-      config.context = Container["view_context"]
-      config.layout = "application"
+  module View
+    class Controller < Dry::View::Controller
+      configure do |config|
+        config.paths = [Container.root.join("web/templates")]
+        config.context = Container["view.context"]
+        config.layout = "application"
+      end
     end
   end
-end
