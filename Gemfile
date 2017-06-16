@@ -8,7 +8,7 @@ gem 'codeclimate-test-reporter', platform: :rbx
 
 # Generated application dependencies
 gem "dry-system", ">= 0.7.1"
-gem "dry-web", ">= 0.6.0"
+gem "dry-web", ">= 0.7.0"
 gem "puma"
 gem "rack_csrf"
 gem "rack", ">= 2.0"
