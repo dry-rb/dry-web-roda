@@ -1,5 +1,4 @@
 require "dry-transaction"
-require "<%= config[:underscored_umbrella_name] %>/transactions"
 require "<%= config[:underscored_project_name] %>/container"
 require "<%= config[:underscored_project_name] %>/import"
 
