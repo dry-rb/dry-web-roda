@@ -1,32 +1,38 @@
-<%= config[:camel_cased_app_name] %>::Container.namespace "persistence" do |persistence|
-  persistence.finalize(:rom) do
+<%= config[:camel_cased_app_name] %>::Container.namespace "persistence" do |container|
+  container.finalize :rom do
     init do
       require "sequel"
       require "rom"
+      require "rom/sql"
 
       use :monitor
+
+      ROM::SQL.load_extensions :postgres
 
       Sequel.database_timezone = :utc
       Sequel.application_timezone = :local
 
       rom_config = ROM::Configuration.new(
         :sql,
-        persistence.settings.database_url,
-        extensions: [:error_sql]
+        container.settings.database_url,
+        extensions: %i[error_sql pg_array pg_json],
       )
 
-      rom_config.plugin(:sql, relations: :instrumentation) do |p|
-        p.notifications = notifications
+      rom_config.plugin :sql, relations: :instrumentation do |plugin_config|
+        plugin_config.notifications = notifications
       end
 
-      persistence.register("config", rom_config)
+      rom_config.plugin :sql, relations: :auto_restrictions
+
+      container.register "config", rom_config
+      container.register "db", rom_config.gateways[:default].connection
     end
 
     start do
-      config = persistence["persistence.config"]
-      config.auto_registration(persistence.root.join("lib/persistence"))
+      config = container["persistence.config"]
+      config.auto_registration container.root.join("lib/persistence")
 
-      persistence.register("rom", ROM.container(config))
+      container.register "rom", ROM.container(config)
     end
   end
 end
