@@ -1,0 +1,9 @@
+# auto_register: false
+
+require "dry/transaction/operation"
+
+module <%= config[:camel_cased_app_name] %>
+  class Operation
+    include Dry::Transaction::Operation
+  end
+end
