@@ -1,3 +1,5 @@
+# auto_register: false
+
 require "rom-repository"
 require "<%= config[:underscored_project_name] %>/container"
 require "<%= config[:underscored_project_name] %>/import"
