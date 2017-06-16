@@ -22,6 +22,8 @@
         plugin_config.notifications = notifications
       end
 
+      rom_config.plugin :sql, relations: :auto_restrictions
+
       container.register "config", rom_config
     end
 
