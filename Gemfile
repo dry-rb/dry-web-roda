@@ -22,7 +22,7 @@ gem "dry-struct"
 gem "dry-transaction", ">= 0.10.0"
 gem "dry-types"
 gem "dry-validation"
-gem "dry-view", ">= 0.2.2"
+gem "dry-view", ">= 0.3.0"
 gem "slim"
 gem "pry-byebug", platform: :mri
 gem "capybara"
