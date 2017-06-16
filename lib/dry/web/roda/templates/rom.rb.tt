@@ -3,8 +3,11 @@
     init do
       require "sequel"
       require "rom"
+      require "rom/sql"
 
       use :monitor
+
+      ROM::SQL.load_extensions :postgres
 
       Sequel.database_timezone = :utc
       Sequel.application_timezone = :local
@@ -12,7 +15,7 @@
       rom_config = ROM::Configuration.new(
         :sql,
         persistence.settings.database_url,
-        extensions: [:error_sql]
+        extensions: %i[error_sql pg_array pg_json],
       )
 
       rom_config.plugin(:sql, relations: :instrumentation) do |p|
