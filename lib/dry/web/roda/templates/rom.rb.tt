@@ -25,6 +25,7 @@
       rom_config.plugin :sql, relations: :auto_restrictions
 
       container.register "config", rom_config
+      container.register "db", rom_config.gateways[:default].connection
     end
 
     start do
