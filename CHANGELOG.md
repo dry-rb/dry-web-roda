@@ -1,3 +1,25 @@
+# 0.7.0 - 2017-06-16
+
+### Added
+
+In generated app:
+
+- Shared `Operation` class for all application operations to inherit from (timriley)
+- Enable `auto_restrictions` relation plugin for ROM (timriley)
+- Register low-level database connection object as "persistence.db" in core container (timriley)
+
+### Changed
+
+In generated app:
+
+- Use full database URL to include credentials in pg_dump (lukkor)
+- Move view controller and context classes into main lib/ dirs (timriley)
+- Use dry-system 0.7.0 magic comments to prevent auto-registration of base repository, view controller and view context classes (timriley)
+- Update dry-system dependency to support string paths for container root configs (timriley)
+- [BREAKING] Use Dry::Web::Settings from dry-web 0.7.0, which loads settings from .env files instead of .yml files (timriley)
+- [BREAKING] Provide settings object via a bootable component
+- [BREAKING] Remove special transactions setup harness, since dry-transaction 0.10.0 supports class-based transactions
+
 # 0.6.3 - 2017-03-02
 
 ### Changed
