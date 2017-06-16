@@ -14,6 +14,7 @@ module Dry
             add_spec
             add_lib
             add_system
+            add_boot
             add_application
             add_config_files
           end
@@ -37,7 +38,8 @@ module Dry
           end
 
           def add_config
-            add_template('settings.yml.tt', 'config/settings.yml')
+            add_template('.env.tt', '.env')
+            add_template('.env.test.tt', '.env.test')
           end
 
           def add_db
@@ -80,7 +82,10 @@ module Dry
           def add_system
             add_system_lib
             add_system_boot
-            add_template("boot.rb.tt", "system/boot.rb")
+          end
+
+          def add_boot
+            raise NotImplementedError
           end
 
           def add_application
@@ -96,6 +101,7 @@ module Dry
           def add_system_boot
             add_template("monitor.rb.tt", "system/boot/monitor.rb")
             add_template("rom.rb.tt", "system/boot/rom.rb")
+            add_template("boot__settings.rb.tt", "system/boot/settings.rb")
           end
 
           def add_config_files

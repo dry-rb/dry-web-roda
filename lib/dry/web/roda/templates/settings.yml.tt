@@ -1,8 +1,0 @@
-development: &base
-  database_url: 'postgres://localhost/<%= config[:underscored_project_name] %>_development'
-  session_secret: '<%= SecureRandom.hex %>'
-test:
-  <<: *base
-  database_url: 'postgres://localhost/<%= config[:underscored_project_name] %>_test'
-production:
-  <<: *base

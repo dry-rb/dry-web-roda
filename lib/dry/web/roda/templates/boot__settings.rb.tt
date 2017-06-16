@@ -1,0 +1,10 @@
+<%= config[:camel_cased_app_name] %>::Container.finalize :settings do |container|
+  init do
+    require "<%= config[:underscored_project_name] %>/settings"
+  end
+
+  start do
+    settings = <%= config[:camel_cased_app_name] %>::Settings.load(container.config.root, container.config.env)
+    container.register "settings", settings
+  end
+end

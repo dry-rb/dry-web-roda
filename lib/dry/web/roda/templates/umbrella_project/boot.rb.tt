@@ -1,0 +1,16 @@
+begin
+  require "pry-byebug"
+rescue LoadError
+end
+
+require_relative "<%= config[:underscored_project_name] %>/container"
+
+<%= config[:camel_cased_app_name] %>::Container.finalize!
+
+# Load sub-apps
+app_paths = Pathname(__FILE__).dirname.join("../apps").realpath.join("*")
+Dir[app_paths].each do |f|
+  require "#{f}/system/boot"
+end
+
+require "<%= config[:underscored_project_name] %>/application"
