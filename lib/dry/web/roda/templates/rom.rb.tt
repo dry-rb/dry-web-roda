@@ -5,6 +5,7 @@
       require "rom"
       require "rom/sql"
 
+      use :settings
       use :monitor
 
       ROM::SQL.load_extensions :postgres
@@ -14,7 +15,7 @@
 
       rom_config = ROM::Configuration.new(
         :sql,
-        container.settings.database_url,
+        container["settings"].database_url,
         extensions: %i[error_sql pg_array pg_json],
       )
 
