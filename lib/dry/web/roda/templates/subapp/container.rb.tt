@@ -4,7 +4,7 @@ require "dry/web/container"
 module <%= config[:camel_cased_app_name] %>
   class Container < Dry::Web::Container
     require root.join("system/<%= config[:underscored_umbrella_name] %>/container")
-    import <%= config[:camel_cased_umbrella_name] %>::Container
+    import core: <%= config[:camel_cased_umbrella_name] %>::Container
 
     register :rack_monitor, <%= config[:camel_cased_umbrella_name] %>::Container[:rack_monitor]
 
