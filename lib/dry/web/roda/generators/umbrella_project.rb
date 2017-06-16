@@ -9,6 +9,10 @@ module Dry
         class UmbrellaProject < AbstractProject
           private
 
+          def add_boot
+            add_template("umbrella_project/boot.rb.tt", "system/boot.rb")
+          end
+
           def add_application
             add_template("umbrella_project/application.rb.tt", "system/#{underscored_project_name}/application.rb")
           end

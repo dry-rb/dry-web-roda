@@ -14,6 +14,7 @@ module Dry
             add_spec
             add_lib
             add_system
+            add_boot
             add_application
             add_config_files
           end
@@ -81,7 +82,10 @@ module Dry
           def add_system
             add_system_lib
             add_system_boot
-            add_template("boot.rb.tt", "system/boot.rb")
+          end
+
+          def add_boot
+            raise NotImplementedError
           end
 
           def add_application
