@@ -25,7 +25,7 @@ module Dry
           source = Pathname(source)
           aboslute_source_path = source.expand_path(SOURCE_DIR)
           target_file = get_target_file(target)
-          template_file = template_files.find { |f| f == aboslute_source_path.to_s }
+          template_file = template_files.find { |f| f == aboslute_source_path.to_s } or raise "missing template file +#{source}+"
           template_file = Pathname(template_file)
 
           processor.template template_file, target_file, template_scope
