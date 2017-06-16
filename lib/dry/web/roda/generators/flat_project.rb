@@ -46,14 +46,14 @@ module Dry
           end
 
           def add_lib
+            add_template('types.rb', 'lib/types.rb')
             add_template('operation.rb.tt', "lib/#{underscored_project_name}/operation.rb")
+            add_template('repository.rb.tt', "lib/#{underscored_project_name}/repository.rb")
+            add_template('.keep', 'lib/persistance/relations/.keep')
+            add_template('.keep', 'lib/persistance/commands/.keep')
             add_template('view_context.rb.tt', "lib/#{underscored_project_name}/view/context.rb")
             add_template('view_controller.rb.tt', "lib/#{underscored_project_name}/view/controller.rb")
             add_template('welcome.rb.tt', "lib/#{underscored_project_name}/views/welcome.rb")
-            add_template('.keep', "lib/#{underscored_project_name}/.keep")
-            add_template('.keep', 'lib/persistance/commands/.keep')
-            add_template('.keep', 'lib/persistance/relations/.keep')
-            add_template('types.rb', 'lib/types.rb')
           end
 
           def add_log
@@ -69,12 +69,12 @@ module Dry
           end
 
           def add_system
-            add_system_app_folder
+            add_system_lib
             add_system_boot
           end
 
-          def add_system_app_folder
-            %w(application container import repository settings).each do |file|
+          def add_system_lib
+            %w(application container import settings).each do |file|
               add_template("#{file}.rb.tt", "system/#{underscored_project_name}/#{file}.rb")
             end
           end
