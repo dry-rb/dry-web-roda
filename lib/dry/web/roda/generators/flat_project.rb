@@ -46,6 +46,7 @@ module Dry
           end
 
           def add_lib
+            add_template('operation.rb.tt', "lib/#{underscored_project_name}/operation.rb")
             add_template('view_context.rb.tt', "lib/#{underscored_project_name}/view/context.rb")
             add_template('view_controller.rb.tt', "lib/#{underscored_project_name}/view/controller.rb")
             add_template('welcome.rb.tt', "lib/#{underscored_project_name}/views/welcome.rb")
