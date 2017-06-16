@@ -14,7 +14,6 @@ module Dry
             add_specs
             add_lib
             add_system
-            add_transactions
             add_web
             add_config_files
           end
@@ -74,7 +73,7 @@ module Dry
           end
 
           def add_system_app_folder
-            %w(application container import repository settings transactions).each do |file|
+            %w(application container import repository settings).each do |file|
               add_template("#{file}.rb.tt", "system/#{underscored_project_name}/#{file}.rb")
             end
           end
@@ -84,10 +83,6 @@ module Dry
               add_template("#{file}.rb.tt", "system/boot/#{file}.rb")
             end
             add_template('boot.rb.tt', 'system/boot.rb')
-          end
-
-          def add_transactions
-            add_template('example.rb.tt', 'transactions/example.rb')
           end
 
           def add_web

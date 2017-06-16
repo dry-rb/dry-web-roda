@@ -8,7 +8,6 @@ module Dry
           def populate_templates
             add_lib
             add_system
-            add_transactions
             add_web
           end
 
@@ -30,15 +29,11 @@ module Dry
           end
 
           def add_system
-            %w(application container transactions).each do |file|
+            %w(application container).each do |file|
               add_template("subapp/#{file}.rb.tt", "system/#{underscored_project_name}/#{file}.rb")
             end
             add_template('import.rb.tt', "system/#{underscored_project_name}/import.rb")
             add_template('subapp/boot.rb.tt', 'system/boot.rb')
-          end
-
-          def add_transactions
-            add_template('subapp/example.rb.tt', 'transactions/example.rb')
           end
 
           def add_web
