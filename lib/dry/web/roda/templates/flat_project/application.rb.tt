@@ -10,7 +10,7 @@ module <%= config[:camel_cased_app_name] %>
 
     opts[:root] = Pathname(__FILE__).join("../..").realpath.dirname
 
-    use Rack::Session::Cookie, key: "<%= config[:underscored_project_name] %>.session", secret: <%= config[:camel_cased_umbrella_name] %>::Container.settings.session_secret
+    use Rack::Session::Cookie, key: "<%= config[:underscored_project_name] %>.session", secret: <%= config[:camel_cased_app_name] %>::Container.settings.session_secret
 
     plugin :csrf, raise: true
     plugin :flash

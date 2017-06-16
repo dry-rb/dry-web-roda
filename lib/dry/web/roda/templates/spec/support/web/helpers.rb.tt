@@ -1,0 +1,9 @@
+module Test
+  module WebHelpers
+    module_function
+
+    def app
+      <%= config[:camel_cased_app_name] %>::Container::Application.app
+    end
+  end
+end

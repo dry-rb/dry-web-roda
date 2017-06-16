@@ -6,18 +6,15 @@ module <%= config[:camel_cased_app_name] %>
     require root.join("system/<%= config[:underscored_umbrella_name] %>/container")
     import <%= config[:camel_cased_umbrella_name] %>::Container
 
+    register :rack_monitor, <%= config[:camel_cased_umbrella_name] %>::Container[:rack_monitor]
+
     configure do |config|
       config.root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
-
       config.logger = <%= config[:camel_cased_umbrella_name] %>::Container[:logger]
-
       config.default_namespace = "<%= config[:underscored_project_name] %>"
-
-      config.auto_register = %w[
-        lib/<%= config[:underscored_project_name] %>
-      ]
+      config.auto_register = %w[lib/<%= config[:underscored_project_name] %>]
     end
 
-    load_paths! "lib", "system"
+    load_paths! "lib"
   end
 end

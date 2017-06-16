@@ -1,0 +1,13 @@
+module Test
+  module DatabaseHelpers
+    module_function
+
+    def rom
+      <%= config[:camel_cased_app_name] %>::Container["persistence.rom"]
+    end
+
+    def db
+      <%= config[:camel_cased_app_name] %>::Container["persistence.db"]
+    end
+  end
+end
