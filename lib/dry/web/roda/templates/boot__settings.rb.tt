@@ -1,6 +1,6 @@
 <%= config[:camel_cased_app_name] %>::Container.finalize :settings do |container|
   init do
-    require "<%= config[:underscored_app_name] %>/settings"
+    require "<%= config[:underscored_project_name] %>/settings"
   end
 
   start do
