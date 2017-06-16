@@ -9,7 +9,7 @@ module TestHelpers
     <%= config[:camel_cased_app_name] %>::Container["persistence.rom"]
   end
 
-  def db_connection
-    rom.gateways[:default].connection
+  def db
+    <%= config[:camel_cased_app_name] %>::Container["persistence.db"]
   end
 end
