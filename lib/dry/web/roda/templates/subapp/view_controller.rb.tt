@@ -14,3 +14,4 @@ module <%= config[:camel_cased_app_name] %>
       end
     end
   end
+end
