@@ -25,7 +25,6 @@ module Dry
             add_template('subapp/view_context.rb.tt', "lib/#{underscored_project_name}/view/context.rb")
             add_template('subapp/view_controller.rb.tt', "lib/#{underscored_project_name}/view/controller.rb")
             add_template('welcome.rb.tt', "lib/#{underscored_project_name}/views/welcome.rb")
-            add_template('.keep', "lib/#{underscored_project_name}/.keep")
           end
 
           def add_system
