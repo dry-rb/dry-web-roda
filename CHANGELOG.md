@@ -1,3 +1,10 @@
+# 0.7.1 - 2017-06-22
+
+### Fixed
+
+- Fix spelling of generated "lib/persistence" directory (timriley)
+- Stop generating a welcome view in the umbrella system (timriley)
+
 # 0.7.0 - 2017-06-16
 
 ### Added
