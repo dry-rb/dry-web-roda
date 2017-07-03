@@ -38,4 +38,5 @@ group :test do
   gem "database_cleaner"
   gem "poltergeist"
   gem "rspec"
+  gem "rom-factory"
 end
