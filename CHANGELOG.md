@@ -1,3 +1,10 @@
+# 0.7.2 - 2017-07-03
+
+### Fixed
+
+- Add missing rom-factory dependency to generated project Gemfile (alejandrobabio)
+- Fix reference to main application class in generated spec helpers file (alejandrobabio)
+
 # 0.7.1 - 2017-06-22
 
 ### Fixed
