@@ -1,6 +1,6 @@
 ENV["RACK_ENV"] = "test"
 
-require "byebug"
+require "pry-byebug"
 
 SPEC_ROOT = Pathname(__FILE__).dirname
 

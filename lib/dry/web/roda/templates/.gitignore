@@ -6,3 +6,6 @@
 
 # Logs
 /log/*.log
+
+# Temp files
+tmp/*
