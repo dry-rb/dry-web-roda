@@ -1,4 +1,4 @@
-require "byebug"
+require "pry-byebug"
 
 SPEC_ROOT = Pathname(__dir__)
 TEST_APP_NAME = "test_app".freeze

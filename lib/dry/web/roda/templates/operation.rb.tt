@@ -4,6 +4,8 @@ require "dry/transaction/operation"
 
 module <%= config[:camel_cased_app_name] %>
   class Operation
-    include Dry::Transaction::Operation
+    def self.inherited(subclass)
+      subclass.include Dry::Transaction::Operation
+    end
   end
 end

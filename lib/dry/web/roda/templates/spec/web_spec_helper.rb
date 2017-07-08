@@ -12,7 +12,7 @@ require SPEC_ROOT.join("../system/boot").realpath
 
 Capybara.app = Test::WebHelpers.app
 Capybara.server_port = 3001
-Capybara.save_and_open_page_path = "#{File.dirname(__FILE__)}/../tmp/capybara-screenshot"
+Capybara.save_path = "#{File.dirname(__FILE__)}/../tmp/capybara-screenshot"
 Capybara.javascript_driver = :poltergeist
 Capybara::Screenshot.prune_strategy = {keep: 10}
 
