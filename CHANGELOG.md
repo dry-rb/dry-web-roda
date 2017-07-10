@@ -7,7 +7,7 @@
 ### Changed
 
 - In generated project, require `pry-byebug` instead of `byebug` alone (alejandrobabio)
-- In generated project's `web_spec_helper.rb`, use updated `save_path` setting for Capybara (alejandrobabio )
+- In generated project's `web_spec_helper.rb`, use updated `save_path` setting for Capybara (alejandrobabio)
 
 # 0.7.2 - 2017-07-03
 
