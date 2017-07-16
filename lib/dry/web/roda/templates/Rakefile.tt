@@ -32,6 +32,16 @@ namespace :db do
     puts "Current schema version: #{version}"
   end
 
+  desc "Creates database"
+  task :create do
+    if system("which createdb", out: File::NULL)
+      <%= config[:camel_cased_app_name] %>::Container.boot :settings
+      settings = <%= config[:camel_cased_app_name] %>::Container["settings"]
+      database_name = settings.database_url.split('/').last
+      `createdb #{Shellwords.escape(database_name)}`
+    end
+  end
+
   desc "Perform migration up to latest migration available"
   task :migrate do
     # Enhance the migration task provided by ROM
