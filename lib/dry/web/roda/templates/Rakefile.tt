@@ -15,9 +15,28 @@ def db
   <%= config[:camel_cased_app_name] %>::Container["persistence.db"]
 end
 
+def settings
+  <%= config[:camel_cased_app_name] %>::Container["settings"]
+end
+
+def execute_database_create_command(settings)
+  database_url = settings.database_url
+  _, _, _, db_name = database_url.split('/')
+  if user_and_net.include?('@')
+    user_name, password = user_and_net.split('@').first.split(':')
+    `PGPASSWORD=#{Shellwords.escape(password)} createdb #{Shellwords.escape(db_name)} -U #{Shellwords.escape(user_name)}`
+  else
+    `createdb #{Shellwords.escape(db_name)}`
+  end
+end
+
 namespace :db do
   task :setup do
     <%= config[:camel_cased_app_name] %>::Container.boot :rom
+  end
+
+  task :settings do
+    <%= config[:camel_cased_app_name] %>::Container.boot :settings
   end
 
   desc "Prints current schema version"
@@ -33,12 +52,22 @@ namespace :db do
   end
 
   desc "Creates database"
-  task :create do
+  task create: :settings do
     if system("which createdb", out: File::NULL)
-      <%= config[:camel_cased_app_name] %>::Container.boot :settings
-      settings = <%= config[:camel_cased_app_name] %>::Container["settings"]
-      database_name = settings.database_url.split('/').last
-      `createdb #{Shellwords.escape(database_name)}`
+      execute_database_create_command
+    else
+      `echo you need postgres installed in order to create the database`
+       exit 1
+    end
+  end
+
+  desc "Drops database"
+  task drop: :settings do
+    if system("which dropdb", out: File::NULL)
+      `dropdb #{Shellwords.escape(settings.database_url.split('/').last)}`
+    else
+      `echo you need postgres installed to drop the database`
+       exit 1
     end
   end
 
