@@ -45,7 +45,7 @@ namespace :db do
     <%= config[:camel_cased_app_name] %>::Container.boot :settings
   end
 
-  desc "Prints current schema version"
+  desc "Print current database schema version"
   task version: :setup do
     version =
       if db.tables.include?(:schema_migrations)
@@ -57,29 +57,29 @@ namespace :db do
     puts "Current schema version: #{version}"
   end
 
-  desc "Creates database"
+  desc "Create database"
   task create: :settings do
     if system("which createdb", out: File::NULL)
       uri = database_uri
       `#{postgres_env_vars_prefix(uri)} createdb #{Shellwords.escape(uri.path[1..-1])}`
     else
-      puts 'you need postgres installed in order to create the database'
+      puts "You must have Postgres installed to create a database"
       exit 1
     end
   end
 
-  desc "Drops database"
+  desc "Drop database"
   task drop: :settings do
     if system("which dropdb", out: File::NULL)
       uri = database_uri
       `#{postgres_env_vars_prefix(uri)} dropdb #{Shellwords.escape(uri.path[1..-1])}`
     else
-      puts 'you need postgres installed in order to drop the database'
+      puts "You must have Postgres installed to drop a database"
       exit 1
     end
   end
 
-  desc "Perform migration up to latest migration available"
+  desc "Migrate database up to latest migration available"
   task :migrate do
     # Enhance the migration task provided by ROM
 
