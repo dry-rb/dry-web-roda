@@ -15,12 +15,34 @@ def db
   <%= config[:camel_cased_app_name] %>::Container["persistence.db"]
 end
 
+def settings
+  <%= config[:camel_cased_app_name] %>::Container["settings"]
+end
+
+def database_uri
+  require "uri"
+  URI.parse(settings.database_url)
+end
+
+def postgres_env_vars(uri)
+  {}.tap do |vars|
+    vars["PGHOST"] = uri.host
+    vars["PGPORT"] = uri.port if uri.port
+    vars["PGUSER"] = uri.user if uri.user
+    vars["PGPASSWORD"] = uri.password if uri.password
+  end
+end
+
 namespace :db do
   task :setup do
     <%= config[:camel_cased_app_name] %>::Container.boot :rom
   end
 
-  desc "Prints current schema version"
+  task :settings do
+    <%= config[:camel_cased_app_name] %>::Container.boot :settings
+  end
+
+  desc "Print current database schema version"
   task version: :setup do
     version =
       if db.tables.include?(:schema_migrations)
@@ -32,7 +54,29 @@ namespace :db do
     puts "Current schema version: #{version}"
   end
 
-  desc "Perform migration up to latest migration available"
+  desc "Create database"
+  task create: :settings do
+    if system("which createdb", out: File::NULL)
+      uri = database_uri
+      system(postgres_env_vars(uri), "createdb #{Shellwords.escape(uri.path[1..-1])}")
+    else
+      puts "You must have Postgres installed to create a database"
+      exit 1
+    end
+  end
+
+  desc "Drop database"
+  task drop: :settings do
+    if system("which dropdb", out: File::NULL)
+      uri = database_uri
+      system(postgres_env_vars(uri), "dropdb #{Shellwords.escape(uri.path[1..-1])}")
+    else
+      puts "You must have Postgres installed to drop a database"
+      exit 1
+    end
+  end
+
+  desc "Migrate database up to latest migration available"
   task :migrate do
     # Enhance the migration task provided by ROM
 
@@ -47,7 +91,10 @@ namespace :db do
     desc "Dump database structure to db/structure.sql"
     task :dump do
       if system("which pg_dump", out: File::NULL)
-        system(%(pg_dump -s -x -O #{Shellwords.escape(db.url)} > db/structure.sql))
+        uri = database_uri
+        system(postgres_env_vars(uri), "pg_dump -s -x -O #{Shellwords.escape(uri.path[1..-1])}", out: "db/structure.sql")
+      else
+        puts "You must have pg_dump installed to dump the database structure"
       end
     end
   end
