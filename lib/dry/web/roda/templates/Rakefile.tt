@@ -43,10 +43,10 @@ namespace :db do
   desc "Creates database"
   task create: :settings do
     if system("which createdb", out: File::NULL)
-      parsed_url = URI.parse(settings.database_url)
-      db_name = parsed_url.path[1..-1]
-      if parsed_url.user && parsed_url.password
-        `PGPASSWORD=#{Shellwords.escape(parsed_url.password)} createdb #{Shellwords.escape(db_name)} -U #{Shellwords.escape(parsed_url.user)}`
+      url = URI.parse(settings.database_url)
+      db_name = url.path[1..-1]
+      if url.user && url.password
+        `PGPASSWORD=#{Shellwords.escape(url.password)} createdb #{Shellwords.escape(db_name)} -U #{Shellwords.escape(url.user)}`
       else
         `createdb #{Shellwords.escape(db_name)}`
       end
@@ -59,8 +59,8 @@ namespace :db do
   desc "Drops database"
   task drop: :settings do
     if system("which dropdb", out: File::NULL)
-      parsed_url = URI.parse(settings.database_url)
-      db_name = parsed_url.path[1..-1]
+      url = URI.parse(settings.database_url)
+      db_name = url.path[1..-1]
       `dropdb #{Shellwords.escape(db_name)}`
     else
       puts 'you need postgres installed in order to drop the database'
