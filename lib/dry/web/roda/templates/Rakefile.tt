@@ -24,16 +24,13 @@ def database_uri
   URI.parse(settings.database_url)
 end
 
-def postgres_env_vars_prefix(uri)
-  vars = {}
-  vars["PGHOST"] = uri.host
-  vars["PGPORT"] = uri.port if uri.port
-  vars["PGUSER"] = uri.user if uri.user
-  vars["PGPASSWORD"] = uri.password if uri.password
-
-  vars.inject("") { |str, (var, value)|
-    str + " #{var}=#{Shellwords.escape(value)}"
-  }
+def postgres_env_vars(uri)
+  {}.tap do |vars|
+    vars["PGHOST"] = uri.host
+    vars["PGPORT"] = uri.port if uri.port
+    vars["PGUSER"] = uri.user if uri.user
+    vars["PGPASSWORD"] = uri.password if uri.password
+  end
 end
 
 namespace :db do
@@ -61,7 +58,7 @@ namespace :db do
   task create: :settings do
     if system("which createdb", out: File::NULL)
       uri = database_uri
-      `#{postgres_env_vars_prefix(uri)} createdb #{Shellwords.escape(uri.path[1..-1])}`
+      system(postgres_env_vars(uri), "createdb #{Shellwords.escape(uri.path[1..-1])}")
     else
       puts "You must have Postgres installed to create a database"
       exit 1
@@ -72,7 +69,7 @@ namespace :db do
   task drop: :settings do
     if system("which dropdb", out: File::NULL)
       uri = database_uri
-      `#{postgres_env_vars_prefix(uri)} dropdb #{Shellwords.escape(uri.path[1..-1])}`
+      system(postgres_env_vars(uri), "dropdb #{Shellwords.escape(uri.path[1..-1])}")
     else
       puts "You must have Postgres installed to drop a database"
       exit 1
@@ -95,7 +92,7 @@ namespace :db do
     task :dump do
       if system("which pg_dump", out: File::NULL)
         uri = database_uri
-        `#{postgres_env_vars_prefix(uri)} pg_dump -s -x -O #{Shellwords.escape(uri.path[1..-1])} > db/structure.sql`
+        system(postgres_env_vars(uri), "pg_dump -s -x -O #{Shellwords.escape(uri.path[1..-1])}", out: "db/structure.sql")
       else
         puts "You must have pg_dump installed to dump the database structure"
       end
