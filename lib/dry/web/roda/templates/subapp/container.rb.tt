@@ -6,8 +6,6 @@ module <%= config[:camel_cased_app_name] %>
     require root.join("system/<%= config[:underscored_umbrella_name] %>/container")
     import core: <%= config[:camel_cased_umbrella_name] %>::Container
 
-    register :rack_monitor, <%= config[:camel_cased_umbrella_name] %>::Container[:rack_monitor]
-
     configure do |config|
       config.root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
       config.logger = <%= config[:camel_cased_umbrella_name] %>::Container[:logger]
