@@ -19,6 +19,23 @@ def settings
   <%= config[:camel_cased_app_name] %>::Container["settings"]
 end
 
+def database_uri
+  require "uri"
+  URI.parse(settings.database_url)
+end
+
+def postgres_env_vars_prefix(uri)
+  vars = {}
+  vars["PGHOST"] = uri.host
+  vars["PGPORT"] = uri.port if uri.port
+  vars["PGUSER"] = uri.user if uri.user
+  vars["PGPASSWORD"] = uri.password if uri.password
+
+  vars.inject("") { |str, (var, value)|
+    str + " #{var}=#{Shellwords.escape(value)}"
+  }
+end
+
 namespace :db do
   task :setup do
     <%= config[:camel_cased_app_name] %>::Container.boot :rom
@@ -43,13 +60,8 @@ namespace :db do
   desc "Creates database"
   task create: :settings do
     if system("which createdb", out: File::NULL)
-      url = URI.parse(settings.database_url)
-      db_name = url.path[1..-1]
-      if url.user && url.password
-        `PGPASSWORD=#{Shellwords.escape(url.password)} createdb #{Shellwords.escape(db_name)} -U #{Shellwords.escape(url.user)}`
-      else
-        `createdb #{Shellwords.escape(db_name)}`
-      end
+      uri = database_uri
+      `#{postgres_env_vars_prefix(uri)} createdb #{Shellwords.escape(uri.path[1..-1])}`
     else
       puts 'you need postgres installed in order to create the database'
       exit 1
@@ -59,9 +71,8 @@ namespace :db do
   desc "Drops database"
   task drop: :settings do
     if system("which dropdb", out: File::NULL)
-      url = URI.parse(settings.database_url)
-      db_name = url.path[1..-1]
-      `dropdb #{Shellwords.escape(db_name)}`
+      uri = database_uri
+      `#{postgres_env_vars_prefix(uri)} dropdb #{Shellwords.escape(uri.path[1..-1])}`
     else
       puts 'you need postgres installed in order to drop the database'
       exit 1
