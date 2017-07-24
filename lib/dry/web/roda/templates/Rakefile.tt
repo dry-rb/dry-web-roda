@@ -94,7 +94,10 @@ namespace :db do
     desc "Dump database structure to db/structure.sql"
     task :dump do
       if system("which pg_dump", out: File::NULL)
-        system(%(pg_dump -s -x -O #{Shellwords.escape(db.url)} > db/structure.sql))
+        uri = database_uri
+        `#{postgres_env_vars_prefix(uri)} pg_dump -s -x -O #{Shellwords.escape(uri.path[1..-1])} > db/structure.sql`
+      else
+        puts "You must have pg_dump installed to dump the database structure"
       end
     end
   end
