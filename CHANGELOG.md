@@ -1,3 +1,18 @@
+# 0.7.4 - 2017-07-25
+
+### Added
+
+- Added db:create and db:drop take tasks, to create and drop the application database (GustavoCaso)
+
+## Changed
+
+- Use Postgres environment variables to provide connection info to `pg_dump` command in db:structure:dump rake task (timriley)
+- Remove error handling block from generated sub-app application classes, since an error handling block is already provided in the top-level umbrella application class (timriley)
+
+### Fixed
+
+- Prevent duplicate log entries in generated umbrella architecture projects (timriley)
+
 # 0.7.3 - 2017-07-10
 
 ### Fixed
