@@ -8,7 +8,7 @@ module Dry
       class Application < ::Roda
         extend Dry::Configurable
 
-        setting :container
+        setting :container, reader: true
         setting :routes
 
         plugin :multi_route
@@ -17,16 +17,16 @@ module Dry
 
         def self.configure(&block)
           super.tap do
-            use(config.container[:rack_monitor])
+            use(container[:rack_monitor]) if container.config.listeners
           end
         end
 
         def self.resolve(name)
-          config.container[name]
+          container[name]
         end
 
         def self.[](name)
-          resolve(name)
+          container[name]
         end
 
         def self.load_routes!
@@ -34,7 +34,7 @@ module Dry
         end
 
         def self.root
-          config.container.config.root
+          container.config.root
         end
 
         def notifications
