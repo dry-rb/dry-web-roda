@@ -1,3 +1,13 @@
+# 0.7.5 - 2017-07-25
+
+### Added
+
+- `Application.container` shortcut (solnic)
+
+### Changed
+
+- An app will use `rack_monitor` only if its container is configured with listeners (solnic)
+
 # 0.7.4 - 2017-07-25
 
 ### Added
