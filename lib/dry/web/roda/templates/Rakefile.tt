@@ -35,11 +35,11 @@ end
 
 namespace :db do
   task :setup do
-    <%= config[:camel_cased_app_name] %>::Container.boot :rom
+    <%= config[:camel_cased_app_name] %>::Container.start :rom
   end
 
   task :settings do
-    <%= config[:camel_cased_app_name] %>::Container.boot :settings
+    <%= config[:camel_cased_app_name] %>::Container.start :settings
   end
 
   desc "Print current database schema version"

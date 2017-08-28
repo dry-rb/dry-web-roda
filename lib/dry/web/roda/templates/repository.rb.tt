@@ -4,7 +4,7 @@ require "rom-repository"
 require "<%= config[:underscored_project_name] %>/container"
 require "<%= config[:underscored_project_name] %>/import"
 
-<%= config[:camel_cased_app_name] %>::Container.boot! :rom
+<%= config[:camel_cased_app_name] %>::Container.start :rom
 
 module <%= config[:camel_cased_app_name] %>
   class Repository < ROM::Repository::Root
