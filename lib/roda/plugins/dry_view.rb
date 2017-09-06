@@ -1,7 +1,14 @@
 class Roda
   module RodaPlugins
     module DryView
-      def self.load_dependencies(app)
+      def self.configure(app, opts=OPTS)
+        app.opts[:view_context_options] = opts.fetch(
+          :view_context_options,
+          {}
+        )
+      end
+
+      def self.load_dependencies(app, opts=OPTS)
         app.plugin :csrf
         app.plugin :flash
         app.plugin :flow
@@ -18,7 +25,7 @@ class Roda
             csrf_token:   Rack::Csrf.token(request.env),
             csrf_metatag: Rack::Csrf.metatag(request.env),
             csrf_tag:     Rack::Csrf.tag(request.env),
-          }
+          }.merge(opts[:view_context_options])
         end
       end
 
