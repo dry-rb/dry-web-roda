@@ -1,4 +1,4 @@
-<%= config[:camel_cased_app_name] %>::Container.finalize :monitor do |_container|
+<%= config[:camel_cased_app_name] %>::Container.boot :monitor do
   init do
     require "dry/monitor"
   end

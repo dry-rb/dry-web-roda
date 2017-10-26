@@ -1,9 +1,10 @@
-require "dry/web/settings"
-require "types"
+<%= config[:camel_cased_app_name] %>::Container.boot :settings, from: :system do
+  before :init do
+    ::Kernel.require "types"
+  end
 
-module <%= config[:camel_cased_app_name] %>
-  class Settings < Dry::Web::Settings
-    setting :database_url, Types::Strict::String.constrained(filled: true)
-    setting :session_secret, Types::Strict::String.constrained(filled: true)
+  settings do
+    key :session_secret, Types::Strict::String.constrained(filled: true)
+    key :database_url, Types::Strict::String.constrained(filled: true)
   end
 end

@@ -94,13 +94,12 @@ module Dry
           def add_system_lib
             add_template("container.rb.tt", "system/#{underscored_project_name}/container.rb")
             add_template("import.rb.tt", "system/#{underscored_project_name}/import.rb")
-            add_template("settings.rb.tt", "system/#{underscored_project_name}/settings.rb")
           end
 
           def add_system_boot
             add_template("monitor.rb.tt", "system/boot/monitor.rb")
-            add_template("rom.rb.tt", "system/boot/rom.rb")
-            add_template("boot__settings.rb.tt", "system/boot/settings.rb")
+            add_template("persistence.rb.tt", "system/boot/persistence.rb")
+            add_template("settings.rb.tt", "system/boot/settings.rb")
           end
 
           def add_config_files

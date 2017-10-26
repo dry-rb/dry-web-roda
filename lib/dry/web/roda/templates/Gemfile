@@ -3,9 +3,9 @@ source "https://rubygems.org"
 gem "rake"
 
 # Web framework
-gem "dry-system", ">= 0.7.1"
-gem "dry-web", ">= 0.7.0"
-gem "dry-web-roda", ">= 0.6.0"
+gem "dry-system", "~> 0.8"
+gem "dry-web", "~> 0.7"
+gem "dry-web-roda", "~> 0.7"
 gem "puma"
 gem "rack_csrf"
 
@@ -19,13 +19,13 @@ gem "rom-repository"
 gem "rom-sql", ">= 1.1.0"
 
 # Application dependencies
-gem "dry-matcher"
-gem "dry-monads"
-gem "dry-struct"
-gem "dry-transaction", ">= 0.10.0"
-gem "dry-types"
-gem "dry-validation"
-gem "dry-view", ">= 0.3.0"
+gem "dry-matcher", "~> 0.6.0"
+gem "dry-monads", "~> 0.3"
+gem "dry-struct", "~> 0.3"
+gem "dry-transaction", "~> 0.10"
+gem "dry-types", "~> 0.12"
+gem "dry-validation", "~> 0.11"
+gem "dry-view", "~> 0.3"
 gem "slim"
 
 group :development, :test do

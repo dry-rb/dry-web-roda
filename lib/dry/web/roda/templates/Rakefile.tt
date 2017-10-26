@@ -35,11 +35,7 @@ end
 
 namespace :db do
   task :setup do
-    <%= config[:camel_cased_app_name] %>::Container.boot :rom
-  end
-
-  task :settings do
-    <%= config[:camel_cased_app_name] %>::Container.boot :settings
+    <%= config[:camel_cased_app_name] %>::Container.init :rom
   end
 
   desc "Print current database schema version"
@@ -55,7 +51,7 @@ namespace :db do
   end
 
   desc "Create database"
-  task create: :settings do
+  task :create do
     if system("which createdb", out: File::NULL)
       uri = database_uri
       system(postgres_env_vars(uri), "createdb #{Shellwords.escape(uri.path[1..-1])}")
@@ -66,7 +62,7 @@ namespace :db do
   end
 
   desc "Drop database"
-  task drop: :settings do
+  task :drop do
     if system("which dropdb", out: File::NULL)
       uri = database_uri
       system(postgres_env_vars(uri), "dropdb #{Shellwords.escape(uri.path[1..-1])}")
