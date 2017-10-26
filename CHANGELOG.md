@@ -1,3 +1,12 @@
+# 0.8.0 - 2017-10-26
+
+### Changed
+
+In generated projects:
+
+- Work with dry-system 0.8, including a system-provided `boot/settings.rb` component for project configuration (timriley)
+- Use rom-rb 4.0 (timriley)
+
 # 0.7.5 - 2017-07-25
 
 ### Added
