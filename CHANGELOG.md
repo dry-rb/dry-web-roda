@@ -4,7 +4,9 @@
 
 In generated projects:
 
-- Work with dry-system 0.8, including a system-provided `boot/settings.rb` component for project configuration (timriley)
+- Work with dry-system 0.8 (timriley)
+- Use dry-systems own settings component in `boot/settings.rb` for project configuration (timriley)
+- Rename `:rom` bootable component to `:persistence` so it can be automatically resolved and lazily loaded (timriley)
 - Use rom-rb 4.0 (timriley)
 
 # 0.7.5 - 2017-07-25
