@@ -35,7 +35,7 @@ end
 
 namespace :db do
   task :setup do
-    <%= config[:camel_cased_app_name] %>::Container.init :rom
+    <%= config[:camel_cased_app_name] %>::Container.init :persistence
   end
 
   desc "Print current database schema version"
