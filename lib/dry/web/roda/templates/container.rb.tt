@@ -1,4 +1,5 @@
 require "dry/web/container"
+require "dry/system/components"
 
 module <%= config[:camel_cased_app_name] %>
   class Container < Dry::Web::Container
