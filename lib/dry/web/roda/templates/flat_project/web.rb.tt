@@ -15,6 +15,7 @@ module <%= config[:camel_cased_app_name] %>
     plugin :csrf, raise: true
     plugin :flash
     plugin :dry_view
+    plugin :error_handler
     plugin :multi_route
 
     route do |r|

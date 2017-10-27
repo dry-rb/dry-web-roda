@@ -12,7 +12,6 @@ module Dry
         setting :routes
 
         plugin :flow
-        plugin :error_handler
 
         def self.configure(&block)
           super.tap do
