@@ -8,7 +8,7 @@ module <%= config[:camel_cased_app_name] %>
     end
 
     route do |r|
-      r.run ::Main::Application.freeze.app
+      r.run <%= config[:camel_cased_app_name] %>::Main::Application.freeze.app
     end
 
     error do |e|

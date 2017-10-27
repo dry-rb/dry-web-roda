@@ -6,6 +6,6 @@ require "<%= config[:underscored_project_name] %>/import"
 
 module <%= config[:camel_cased_app_name] %>
   class Repository < ROM::Repository::Root
-    include <%= config[:camel_cased_app_name] %>::Import.args["persistence.rom"]
+    include Import.args["persistence.rom"]
   end
 end
