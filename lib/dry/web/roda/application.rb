@@ -11,9 +11,7 @@ module Dry
         setting :container, reader: true
         setting :routes
 
-        plugin :multi_route
         plugin :flow
-        plugin :error_handler
 
         def self.configure(&block)
           super.tap do

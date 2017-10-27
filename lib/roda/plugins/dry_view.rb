@@ -2,8 +2,6 @@ class Roda
   module RodaPlugins
     module DryView
       def self.load_dependencies(app)
-        app.plugin :csrf
-        app.plugin :flash
         app.plugin :flow
       end
 
@@ -13,12 +11,7 @@ class Roda
         end
 
         def view_context_options
-          {
-            flash:        flash,
-            csrf_token:   Rack::Csrf.token(request.env),
-            csrf_metatag: Rack::Csrf.metatag(request.env),
-            csrf_tag:     Rack::Csrf.tag(request.env),
-          }
+          {}
         end
       end
 

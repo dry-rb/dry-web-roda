@@ -7,6 +7,8 @@ module <%= config[:camel_cased_app_name] %>
       config.container = Container
     end
 
+    plugin :error_handler
+
     route do |r|
       r.run <%= config[:camel_cased_app_name] %>::Main::Web.freeze.app
     end
