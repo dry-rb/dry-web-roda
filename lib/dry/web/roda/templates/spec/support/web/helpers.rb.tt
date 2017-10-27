@@ -3,7 +3,7 @@ module Test
     module_function
 
     def app
-      <%= config[:camel_cased_app_name] %>::Application.app
+      <%= config[:camel_cased_app_name] %>::Web.app
     end
   end
 end

@@ -2,4 +2,4 @@ require_relative "<%= config[:underscored_umbrella_name] %>/<%= config[:undersco
 
 <%= config[:camel_cased_umbrella_name] %>::<%= config[:camel_cased_app_name] %>::Container.finalize!
 
-require "<%= config[:underscored_umbrella_name] %>/<%= config[:underscored_project_name] %>/application"
+require "<%= config[:underscored_umbrella_name] %>/<%= config[:underscored_project_name] %>/web"

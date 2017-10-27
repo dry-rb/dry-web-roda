@@ -19,7 +19,7 @@ module Dry
           end
 
           def add_application
-            add_template("flat_project/application.rb.tt", "system/#{underscored_project_name}/application.rb")
+            add_template("flat_project/web.rb.tt", "system/#{underscored_project_name}/web.rb")
           end
 
           def add_views

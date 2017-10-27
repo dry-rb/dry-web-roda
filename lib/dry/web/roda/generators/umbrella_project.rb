@@ -14,7 +14,7 @@ module Dry
           end
 
           def add_application
-            add_template("umbrella_project/application.rb.tt", "system/#{underscored_project_name}/application.rb")
+            add_template("umbrella_project/web.rb.tt", "system/#{underscored_project_name}/web.rb")
           end
 
           def post_process_callback
