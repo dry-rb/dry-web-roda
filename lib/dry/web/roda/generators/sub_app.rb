@@ -40,7 +40,7 @@ module Dry
           end
 
           def add_system
-            add_template('subapp/application.rb.tt', "#{system_lib_path}/application.rb")
+            add_template('subapp/web.rb.tt', "#{system_lib_path}/web.rb")
             add_template('subapp/container.rb.tt', "#{system_lib_path}/container.rb")
             add_template('subapp/import.rb.tt', "#{system_lib_path}/import.rb")
             add_template('subapp/boot.rb.tt', 'system/boot.rb')

@@ -1,2 +1,2 @@
 require_relative "system/boot"
-run <%= config[:camel_cased_app_name] %>::Application.freeze.app
+run <%= config[:camel_cased_app_name] %>::Web.freeze.app

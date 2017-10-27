@@ -13,4 +13,4 @@ Dir[app_paths].each do |f|
   require "#{f}/system/boot"
 end
 
-require "<%= config[:underscored_project_name] %>/application"
+require "<%= config[:underscored_project_name] %>/web"
