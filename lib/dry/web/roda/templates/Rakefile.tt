@@ -11,6 +11,8 @@ begin
 rescue LoadError
 end
 
+<%= config[:camel_cased_app_name] %>::Container.finalize!
+
 def db
   <%= config[:camel_cased_app_name] %>::Container["persistence.db"]
 end
