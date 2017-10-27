@@ -1,7 +1,7 @@
 # auto_register: false
 
 require "slim"
-require "dry-view"
+require "dry/view/controller"
 require "<%= config[:underscored_project_name] %>/container"
 
 module <%= config[:camel_cased_app_name] %>

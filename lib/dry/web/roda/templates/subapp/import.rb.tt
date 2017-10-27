@@ -1,0 +1,7 @@
+require_relative "container"
+
+module <%= config[:camel_cased_umbrella_name] %>
+  module <%= config[:camel_cased_app_name] %>
+    Import = Container.injector
+  end
+end

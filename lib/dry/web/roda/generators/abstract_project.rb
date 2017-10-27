@@ -53,8 +53,8 @@ module Dry
             add_template('repository.rb.tt', "lib/#{underscored_project_name}/repository.rb")
             add_template('.keep', 'lib/persistence/relations/.keep')
             add_template('.keep', 'lib/persistence/commands/.keep')
-            add_template('view_context.rb.tt', "lib/#{underscored_project_name}/view/context.rb")
-            add_template('view_controller.rb.tt', "lib/#{underscored_project_name}/view/controller.rb")
+            add_template('view__context.rb.tt', "lib/#{underscored_project_name}/view/context.rb")
+            add_template('view__controller.rb.tt', "lib/#{underscored_project_name}/view/controller.rb")
           end
 
           def add_log

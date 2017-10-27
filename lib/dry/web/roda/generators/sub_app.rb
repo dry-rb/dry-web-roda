@@ -21,22 +21,33 @@ module Dry
             options.fetch(:umbrella)
           end
 
+          def underscored_umbrella_name
+            Inflections.underscored_name(umbrella_name)
+          end
+
+          def lib_path
+            "lib/#{underscored_umbrella_name}/#{underscored_project_name}"
+          end
+
+          def system_lib_path
+            "system/#{underscored_umbrella_name}/#{underscored_project_name}"
+          end
+
           def add_lib
-            add_template('subapp/view_context.rb.tt', "lib/#{underscored_project_name}/view/context.rb")
-            add_template('subapp/view_controller.rb.tt', "lib/#{underscored_project_name}/view/controller.rb")
-            add_template('welcome.rb.tt', "lib/#{underscored_project_name}/views/welcome.rb")
+            add_template('subapp/view__context.rb.tt', "#{lib_path}/view/context.rb")
+            add_template('subapp/view__controller.rb.tt', "#{lib_path}/view/controller.rb")
+            add_template('subapp/welcome.rb.tt', "#{lib_path}/views/welcome.rb")
           end
 
           def add_system
-            %w(application container).each do |file|
-              add_template("subapp/#{file}.rb.tt", "system/#{underscored_project_name}/#{file}.rb")
-            end
-            add_template('import.rb.tt', "system/#{underscored_project_name}/import.rb")
+            add_template('subapp/application.rb.tt', "#{system_lib_path}/application.rb")
+            add_template('subapp/container.rb.tt', "#{system_lib_path}/container.rb")
+            add_template('subapp/import.rb.tt', "#{system_lib_path}/import.rb")
             add_template('subapp/boot.rb.tt', 'system/boot.rb')
           end
 
           def add_web
-            add_template('example_routes.rb.tt', 'web/routes/example.rb')
+            add_template('subapp/example_routes.rb.tt', 'web/routes/example.rb')
             add_template('application.html.slim', 'web/templates/layouts/application.html.slim')
             add_template('welcome.html.slim', 'web/templates/welcome.html.slim')
           end
@@ -45,7 +56,7 @@ module Dry
             {
               underscored_project_name: underscored_project_name,
               camel_cased_app_name: Inflections.camel_cased_name(target_dir),
-              underscored_umbrella_name: Inflections.underscored_name(umbrella_name),
+              underscored_umbrella_name: underscored_umbrella_name,
               camel_cased_umbrella_name: Inflections.camel_cased_name(umbrella_name),
             }
           end
