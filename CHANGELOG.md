@@ -1,3 +1,19 @@
+# 0.9.0 - 2017-10-27
+
+### Changed
+
+- `Dry::Web::Roda::Application` no longer automatically enables `error_handler` and `multi_route` Roda plugins (timriley)
+- `DryView` Roda plugin no longer automatically enables `csrf` and `flash` Roda plugins (timriley)
+- `DryView` Roda plugin no longer populates its `#view_context_options` with flash and CSRF data (timriley)
+
+In generated projects:
+
+- Nest sub-apps under the root project namespace (e.g. `MyApp::Main`) instead of keeping them at the top-level (`Main`) (timriley)
+- Rename `Dry::Web::Roda::Application` subclasses from `Application` to `Web` (timriley)
+- Comment out `r.multi_route` routing instruction in `Web` classes by default, to avoid future Roda exceptions (timriley)
+- Enable more Roda plugins (`csrf`, `error_handler`, `flash`, `multi_route`) directly in `Web` classes (timriley)
+- Add default implementation of `#view_context_options` to `Web` classes for `dry_view` Roda plugin  (timriley)
+
 # 0.8.0 - 2017-10-26
 
 ### Changed
