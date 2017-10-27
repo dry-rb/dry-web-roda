@@ -17,7 +17,8 @@ module <%= config[:camel_cased_app_name] %>
     plugin :dry_view
 
     route do |r|
-      r.multi_route
+      # Enable this after writing your first web/routes/ file
+      # r.multi_route
 
       r.root do
         r.view "welcome"
