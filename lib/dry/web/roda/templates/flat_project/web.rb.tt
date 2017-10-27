@@ -13,9 +13,9 @@ module <%= config[:camel_cased_app_name] %>
     use Rack::Session::Cookie, key: "<%= config[:underscored_project_name] %>.session", secret: self["settings"].session_secret
 
     plugin :csrf, raise: true
-    plugin :flash
     plugin :dry_view
     plugin :error_handler
+    plugin :flash
     plugin :multi_route
 
     route do |r|
@@ -30,6 +30,16 @@ module <%= config[:camel_cased_app_name] %>
     error do |e|
       self.class[:rack_monitor].instrument(:error, exception: e)
       raise e
+    end
+
+    # Request-specific options for dry-view context object
+    def view_context_options
+      {
+        flash:        flash,
+        csrf_token:   Rack::Csrf.token(request.env),
+        csrf_metatag: Rack::Csrf.metatag(request.env),
+        csrf_tag:     Rack::Csrf.tag(request.env),
+      }
     end
 
     load_routes!
