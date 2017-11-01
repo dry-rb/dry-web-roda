@@ -1,3 +1,9 @@
+# 0.9.1 - 2017-11-01
+
+### Changed
+
+- In generated projects, require dry-view 0.4 (timriley)
+
 # 0.9.0 - 2017-10-27
 
 ### Changed
