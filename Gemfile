@@ -2,13 +2,14 @@ source "https://rubygems.org"
 
 gemspec
 
+gem 'dry-web', git: 'https://github.com/dry-rb/dry-web.git', branch: 'master'
+gem 'dry-system', git: 'https://github.com/dry-rb/dry-system.git', branch: 'master'
+
 gem 'pry'
 gem 'byebug', platform: :mri
 gem 'codeclimate-test-reporter', platform: :rbx
 
 # Generated application dependencies
-gem "dry-system", "~> 0.8"
-gem "dry-web", "~> 0.7"
 gem "puma"
 gem "rack_csrf"
 gem "rack", ">= 2.0"
