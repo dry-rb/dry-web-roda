@@ -26,10 +26,10 @@ end
 
 def postgres_env_vars(uri)
   {}.tap do |vars|
-    vars["PGHOST"] = uri.host
-    vars["PGPORT"] = uri.port if uri.port
-    vars["PGUSER"] = uri.user if uri.user
-    vars["PGPASSWORD"] = uri.password if uri.password
+    vars["PGHOST"] = uri.host.to_s
+    vars["PGPORT"] = uri.port.to_s if uri.port
+    vars["PGUSER"] = uri.user.to_s if uri.user
+    vars["PGPASSWORD"] = uri.password.to_s if uri.password
   end
 end
 
