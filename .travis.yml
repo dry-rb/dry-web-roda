@@ -12,9 +12,10 @@ before_script:
 script:
   - ./script/ci
 rvm:
-  - 2.4.0
-  - 2.3.3
-  - jruby-9.1.6.0
+  - 2.5.0
+  - 2.4.3
+  - 2.3.6
+  - jruby-9.1.9.0
 env:
   global:
     - JRUBY_OPTS='--dev -J-Xmx1024M'
