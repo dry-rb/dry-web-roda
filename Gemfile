@@ -2,8 +2,10 @@ source "https://rubygems.org"
 
 gemspec
 
-gem 'dry-web', git: 'https://github.com/dry-rb/dry-web.git', branch: 'master'
+gem 'dry-events', git: 'https://github.com/dry-rb/dry-events.git', branch: 'master'
+gem 'dry-monitor', git: 'https://github.com/dry-rb/dry-monitor.git', branch: 'master'
 gem 'dry-system', git: 'https://github.com/dry-rb/dry-system.git', branch: 'master'
+gem 'dry-web', git: 'https://github.com/dry-rb/dry-web.git', branch: 'master'
 
 gem 'pry'
 gem 'byebug', platform: :mri
