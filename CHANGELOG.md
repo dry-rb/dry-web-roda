@@ -1,3 +1,9 @@
+# 0.10.0 - to-be-released
+
+### Changed
+
+[Compare v0.9.1...v0.10.0](https://github.com/dry-rb/dry-web-roda/compare/v0.9.1...v0.10.0)
+
 # 0.9.1 - 2017-11-01
 
 ### Changed
