@@ -2,11 +2,6 @@ source "https://rubygems.org"
 
 gemspec
 
-gem 'dry-events', git: 'https://github.com/dry-rb/dry-events.git', branch: 'master'
-gem 'dry-monitor', git: 'https://github.com/dry-rb/dry-monitor.git', branch: 'master'
-gem 'dry-system', git: 'https://github.com/dry-rb/dry-system.git', branch: 'master'
-gem 'dry-web', git: 'https://github.com/dry-rb/dry-web.git', branch: 'master'
-
 gem 'pry'
 gem 'byebug', platform: :mri
 gem 'codeclimate-test-reporter', platform: :rbx
@@ -23,10 +18,12 @@ gem "rom-sql", "~> 2.1"
 gem "dry-matcher", "~> 0.6.0"
 gem "dry-monads", "~> 0.3"
 gem "dry-struct", "~> 0.3"
+gem "dry-system", "~> 0.9"
 gem "dry-transaction", "~> 0.10"
 gem "dry-types", "~> 0.12"
 gem "dry-validation", "~> 0.11"
 gem "dry-view", "~> 0.3"
+gem "dry-web", "~> 0.8"
 gem "slim"
 gem "pry-byebug", platform: :mri
 gem "capybara"
