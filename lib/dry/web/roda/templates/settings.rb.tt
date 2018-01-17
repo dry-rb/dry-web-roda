@@ -1,6 +1,6 @@
 <%= config[:camel_cased_app_name] %>::Container.boot :settings, from: :system do
   before :init do
-    ::Kernel.require "types"
+    require "types"
   end
 
   settings do
