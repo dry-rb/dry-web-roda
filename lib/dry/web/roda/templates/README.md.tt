@@ -5,8 +5,16 @@ Welcome! You’ve generated an app using dry-web-roda.
 ## First steps
 
 1. Run `bundle`
-1. Review `.env` & `.env.test` (and make a copy to e.g. `.example.env` if you want example settings checked in)
-1. Run `bundle exec rake db:create`
-1. Add your own steps to `bin/setup`
-1. Run the app with `bundle exec shotgun -p 3000 -o 0.0.0.0 config.ru`
-1. Initialize git with `git init` and make your initial commit
+2. Review `.env` & `.env.test` (and make a copy to e.g. `.example.env` if you want example settings checked in)
+3. Run `bundle exec rake db:create`
+4. Add your own steps to `bin/setup`
+5. Run the app with `bundle exec shotgun -p 3000 -o 0.0.0.0 config.ru`
+   Shotgun is only compatible with systems that support fork(2) (probably just MRI on POSIX systems).
+
+   [This article on macOS High Sierra's issues with this][fork-on-high-sierra] mentions a workaround:
+   `export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES`
+
+6. Initialize git with `git init` and make your initial commit
+
+
+[fork-on-high-sierra]: https://blog.phusion.nl/2017/10/13/why-ruby-app-servers-break-on-macos-high-sierra-and-what-can-be-done-about-it/
