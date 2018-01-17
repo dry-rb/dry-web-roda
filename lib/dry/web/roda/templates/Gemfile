@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "rake"
 
 # Web framework
-gem "dry-system", "~> 0.8"
+gem "dry-system", "~> 0.9"
 gem "dry-web", "~> 0.7"
 gem "dry-web-roda", "~> 0.7"
 gem "puma"
