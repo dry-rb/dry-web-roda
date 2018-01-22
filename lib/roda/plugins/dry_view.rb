@@ -13,12 +13,16 @@ class Roda
         def view_context_options
           {}
         end
+
+        def view_key(name)
+          "views.#{name}"
+        end
       end
 
       module RequestMethods
         def view(name, options = {})
           options = {context: scope.view_context}.merge(options)
-          is to: "views.#{name}", call_with: [options]
+          is to: scope.view_key(name), call_with: [options]
         end
       end
     end
