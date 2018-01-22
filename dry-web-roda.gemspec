@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "dry-configurable", "~> 0.2"
   spec.add_runtime_dependency "inflecto", "~> 0.0"
-  spec.add_runtime_dependency "roda", "~> 2.14"
+  spec.add_runtime_dependency "roda", "~> 2.14", "< 4.0"
   spec.add_runtime_dependency "roda-flow", "~> 0.3"
   spec.add_runtime_dependency "thor", "~> 0.19"
 
