@@ -10,7 +10,6 @@ gem 'codeclimate-test-reporter', platform: :rbx
 gem "puma"
 gem "rack_csrf"
 gem "rack", ">= 2.0"
-gem "shotgun", ">= 0.9.2"
 gem "pg"
 gem "rom", "~> 4.0"
 gem "rom-factory", "~> 0.5"
