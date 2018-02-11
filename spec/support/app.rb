@@ -26,7 +26,7 @@ module RSpec
         end
       end
 
-      def run_app(host: "0.0.0.0", port: "30333", timeout: 5)
+      def run_app(host: "0.0.0.0", port: "30333", timeout: 10)
         cmd = "bundle exec rackup -o 0.0.0.0 -p #{port} config.ru"
         out = Tempfile.new("dry-web-roda-out")
 
