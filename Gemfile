@@ -9,8 +9,8 @@ gem 'codeclimate-test-reporter', platform: :rbx
 # Generated application dependencies
 gem "puma"
 gem "rack_csrf"
+gem "rerun"
 gem "rack", ">= 2.0"
-gem "shotgun", ">= 0.9.2"
 gem "pg"
 gem "rom", "~> 4.0"
 gem "rom-factory", "~> 0.5"
