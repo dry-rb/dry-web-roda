@@ -2,6 +2,21 @@
 
 ### Changed
 
+- Use dry-system and dry-web latest version (solnic + timriley)
+- Force `Kernel#system` to receive hash with string values (alejandrobabio)
+- Downgrade `roda-flow` to `0.3.1` to avoid 404 on root page (GustavoCaso)
+- Replace shotgun with rerun to start the generated projects (GustavoCaso)
+
+    To start a project now:
+
+    ```sh
+    bundle exec rerun -- rackup --port 4000 config.ru
+    ```
+In generated projects:
+
+- Require dry-system 0.9 (GustavoCaso)
+- Add ability to define custom view key resolver in `dry_view` Roda plugin (AMHOL)
+
 [Compare v0.9.1...v0.10.0](https://github.com/dry-rb/dry-web-roda/compare/v0.9.1...v0.10.0)
 
 # 0.9.1 - 2017-11-01
