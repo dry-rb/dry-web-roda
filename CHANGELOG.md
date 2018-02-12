@@ -1,4 +1,4 @@
-# 0.10.0 - to-be-released
+# 0.10.0 - 2018-02-13
 
 ### Changed
 
@@ -12,6 +12,7 @@
     ```sh
     bundle exec rerun -- rackup --port 4000 config.ru
     ```
+
 In generated projects:
 
 - Require dry-system 0.9 (GustavoCaso)
