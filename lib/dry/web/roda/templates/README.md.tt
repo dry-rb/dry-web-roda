@@ -6,7 +6,8 @@ Welcome! You’ve generated an app using dry-web-roda.
 
 1. Run `bundle`
 2. Review `.env` & `.env.test` (and make a copy to e.g. `.example.env` if you want example settings checked in)
-3. Run `bundle exec rake db:create`
-4. Add your own steps to `bin/setup`
-5. Run the app with `bundle exec rerun -- rackup --port 4000 config.ru`
-6. Initialize git with `git init` and make your initial commit
+3. Run `bundle exec rake db:create` to create the development database.
+4. Run `RACK_ENV=test bundle exec rake db:create` to create the test database.
+5. Add your own steps to `bin/setup`
+6. Run the app with `bundle exec rerun -- rackup --port 4000 config.ru`
+7. Initialize git with `git init` and make your initial commit
