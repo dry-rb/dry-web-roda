@@ -22,7 +22,7 @@ class Roda
       module RequestMethods
         def view(name, options = {})
           options = {context: scope.view_context}.merge(options)
-          is to: scope.view_key(name), call_with: [options]
+          on to: scope.view_key(name), call_with: [options]
         end
       end
     end
