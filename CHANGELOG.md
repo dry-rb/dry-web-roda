@@ -1,3 +1,11 @@
+# 0.11.0 - 2018-02-21
+
+### Changed
+
+- Use Roda 3.0 and compatible version of roda-flow (GustavoCaso & alejandrobabio)
+
+[Compare v0.10.0...v0.11.0](https://github.com/dry-rb/dry-web-roda/compare/v0.10.0...v0.11.0)
+
 # 0.10.0 - 2018-02-13
 
 ### Changed
