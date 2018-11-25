@@ -10,7 +10,6 @@ gem "puma"
 gem "rack_csrf"
 
 gem "rack", ">= 2.0"
-gem "rerun"
 
 # Database persistence
 gem "pg"
@@ -29,6 +28,10 @@ gem "slim"
 
 group :development, :test do
   gem "pry-byebug", platform: :mri
+end
+
+group :development do
+  gem "rerun"
 end
 
 group :test do
