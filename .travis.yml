@@ -1,6 +1,5 @@
 language: ruby
 dist: trusty
-sudo: false
 services:
   - postgresql
 cache: bundler
@@ -12,16 +11,17 @@ before_script:
 script:
   - ./script/ci
 rvm:
-  - 2.5.0
-  - 2.4.3
-  - 2.3.6
-  - jruby-9.1.9.0
+  - 2.6.2
+  - 2.5.5
+  - 2.4.5
+  - 2.3.8
+  - jruby-9.2.6.0
 env:
   global:
     - JRUBY_OPTS='--dev -J-Xmx1024M'
 matrix:
   allow_failures:
-    - rvm: jruby-9.1.9.0
+    - rvm: jruby-9.2.6.0
 notifications:
   email: false
   webhooks:
