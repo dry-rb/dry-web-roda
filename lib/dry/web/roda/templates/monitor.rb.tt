@@ -1,6 +1,7 @@
 <%= config[:camel_cased_app_name] %>::Container.boot :monitor do
   init do
     require "dry/monitor"
+    Dry::Monitor.load_extensions(:sql)
   end
 
   start do
