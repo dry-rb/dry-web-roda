@@ -7,7 +7,7 @@ class Roda
 
       module InstanceMethods
         def view_context
-          self.class["view.context"].with(view_context_options)
+          self.class["view_context"].with(view_context_options)
         end
 
         def view_context_options

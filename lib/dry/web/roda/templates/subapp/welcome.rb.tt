@@ -1,9 +1,9 @@
-require "<%= config[:underscored_umbrella_name] %>/<%= config[:underscored_project_name] %>/view/controller"
+require "<%= config[:underscored_umbrella_name] %>/<%= config[:underscored_project_name] %>/view"
 
 module <%= config[:camel_cased_umbrella_name] %>
   module <%= config[:camel_cased_app_name] %>
     module Views
-      class Welcome < View::Controller
+      class Welcome < View
         configure do |config|
           config.template = "welcome"
         end
