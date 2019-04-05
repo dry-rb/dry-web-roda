@@ -11,12 +11,14 @@ module <%= config[:camel_cased_app_name] %>
     opts[:root] = Pathname(__FILE__).join("../..").realpath.dirname
 
     use Rack::Session::Cookie, key: "<%= config[:underscored_project_name] %>.session", secret: self["settings"].session_secret
+    use Rack::MethodOverride
 
     plugin :csrf, raise: true
     plugin :dry_view
     plugin :error_handler
     plugin :flash
     plugin :multi_route
+    plugin :all_verbs
 
     route do |r|
       # Enable this after writing your first web/routes/ file
