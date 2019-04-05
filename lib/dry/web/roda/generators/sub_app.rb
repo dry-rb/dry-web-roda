@@ -34,8 +34,8 @@ module Dry
           end
 
           def add_lib
-            add_template('subapp/view__context.rb.tt', "#{lib_path}/view/context.rb")
-            add_template('subapp/view__controller.rb.tt', "#{lib_path}/view/controller.rb")
+            add_template('subapp/view_context.rb.tt', "#{lib_path}/view_context.rb")
+            add_template('subapp/view.rb.tt', "#{lib_path}/view.rb")
             add_template('subapp/welcome.rb.tt', "#{lib_path}/views/welcome.rb")
           end
 

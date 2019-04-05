@@ -17,13 +17,13 @@ gem "rom", "~> 4.0"
 gem "rom-sql", "~> 2.1"
 
 # Application dependencies
-gem "dry-matcher", "~> 0.6.0"
-gem "dry-monads", "~> 0.3"
+gem "dry-matcher", "~> 0.7"
+gem "dry-monads", "~> 1.2"
 gem "dry-struct", "~> 0.3"
-gem "dry-transaction", "~> 0.10"
+gem "dry-transaction", "~> 0.13"
 gem "dry-types", "~> 0.12"
 gem "dry-validation", "~> 0.11"
-gem "dry-view", "~> 0.4"
+gem "dry-view", "~> 0.7"
 gem "slim"
 
 group :development, :test do

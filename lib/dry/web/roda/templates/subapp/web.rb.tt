@@ -24,7 +24,7 @@ module <%= config[:camel_cased_umbrella_name] %>
         # r.multi_route
 
         r.root do
-          r.view "welcome"
+          r.view :welcome
         end
       end
 

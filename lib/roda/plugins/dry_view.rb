@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Roda
   module RodaPlugins
     module DryView
@@ -7,7 +9,7 @@ class Roda
 
       module InstanceMethods
         def view_context
-          self.class["view.context"].with(view_context_options)
+          self.class["view_context"].with(view_context_options)
         end
 
         def view_context_options
@@ -21,8 +23,9 @@ class Roda
 
       module RequestMethods
         def view(name, options = {})
-          options = {context: scope.view_context}.merge(options)
-          on to: scope.view_key(name), call_with: [options]
+          resolve(scope.view_key(name)) do |renderer|
+            renderer.call({ context: scope.view_context }.merge(options)).to_s
+          end
         end
       end
     end
