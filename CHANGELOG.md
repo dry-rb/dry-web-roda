@@ -1,3 +1,14 @@
+# 0.12.0 - 2019-04-16
+
+### Changed
+
+- Update generated app to work with latest releases of dry-rb gems, including dry-view 0.7.0 and dry-monitor 0.3.0 (parndt in [#94][pr94])
+- [BREAKING] `view` roda helper now expects the dry-view context object to be registered in the container as `"view_context"` (instead of previous `"view.context"`) (parndt in [#94][pr94])
+
+[pr94]: https://github.com/dry-rb/dry-web-roda/pull/94/files
+
+[Compare v0.11.0...v0.12.0](https://github.com/dry-rb/dry-web-roda/compare/v0.11.0...v0.12.0)
+
 # 0.11.0 - 2018-02-21
 
 ### Changed
