@@ -11,7 +11,7 @@ before_script:
 script:
   - ./script/ci
 rvm:
-  - 2.6.2
+  - 2.6.3
   - 2.5.5
   - 2.4.5
   - 2.3.8
