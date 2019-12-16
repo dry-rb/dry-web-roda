@@ -4,8 +4,6 @@ services:
   - postgresql
 cache: bundler
 install: true
-before_install:
-  - gem update --system
 before_script:
   - psql -c 'create database sandbox_test;' -U postgres
 script:
