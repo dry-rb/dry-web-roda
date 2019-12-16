@@ -1,4 +1,4 @@
-require "inflecto"
+require 'dry/web/roda/inflector'
 
 module Dry
   module Web
@@ -8,11 +8,11 @@ module Dry
           module_function
 
           def underscored_name(name)
-            Inflecto.underscore(name)
+            Inflector.underscore(name)
           end
 
           def camel_cased_name(name)
-            Inflecto.camelize(underscored_name(name))
+            Inflector.camelize(underscored_name(name))
           end
         end
       end
