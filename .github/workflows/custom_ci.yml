@@ -1,0 +1,50 @@
+# this file is managed by dry-rb/devtools project
+
+name: ci
+
+on:
+  push:
+    paths:
+      - .github/workflows/custom_ci.yml
+      - lib/**
+      - spec/**
+      - Gemfile
+      - "*.gemspec"
+
+jobs:
+  tests-mri:
+    runs-on: ubuntu-latest
+    services:
+      postgres_db:
+        image: postgres:10.8
+        env:
+          POSTGRES_USER: runner
+          POSTGRES_PASSWORD: ""
+          POSTGRES_DB: sandbox_development
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ["2.6.x", "2.5.x", "2.4.x"]
+        include:
+          - ruby: "2.6.x"
+            coverage: "true"
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: sudo apt-get install -y --no-install-recommends libpq-dev
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{matrix.ruby}}
+      - name: Bundle install
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3 --without tools docs benchmarks
+      - name: Run all tests
+        env:
+          COVERAGE: ${{matrix.coverage}}
+        run: bundle exec rake
