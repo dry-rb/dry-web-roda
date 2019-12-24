@@ -4,6 +4,7 @@
 
 * Updated generated Gemfile to use the latest dry-* and rom-* gems (@solnic)
 * Fixed dry-types warning from the generated `types.rb` (@solnic)
+* Removed `inflecto` in favor of `dry-inflector` (@solnic)
 
 [Compare v0.12.0...v0.13.0](https://github.com/dry-rb/dry-web-roda/compare/v0.12.0...v0.13.0)
 
