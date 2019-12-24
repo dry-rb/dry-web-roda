@@ -1,3 +1,15 @@
+# 0.13.1 - 2019-12-24
+
+## Fixed
+
+- Added missing dependency on `dry-inflector` (@solnic)
+
+## Changed
+
+- Removed `inflecto` from runtime dependencies (@solnic)
+
+[Compare v0.13.0...v0.13.1](https://github.com/dry-rb/dry-web-roda/compare/v0.13.0...v0.13.1)
+
 # 0.13.0 - 2019-12-24
 
 ## Fixed
