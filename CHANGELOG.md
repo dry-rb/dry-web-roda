@@ -18,8 +18,6 @@
 * Fixed dry-types warning from the generated `types.rb` (@solnic)
 * ~~Removed `inflecto` in favor of `dry-inflector` (@solnic)~~ actually it was done in `0.13.1`
 
-- Added missing dependency on `dry-inflector` (@solnic)
-
 ## Changed
 
 - Removed `inflecto` from runtime dependencies (@solnic)
