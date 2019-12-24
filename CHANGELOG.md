@@ -1,5 +1,9 @@
 # 0.13.0 - 2019-12-24
 
+## Fixed
+
+* dry-monitor for rom is correctly configured in the generated boot file (@mlk-yozu)
+
 ## Changed
 
 * Updated generated Gemfile to use the latest dry-* and rom-* gems (@solnic)
