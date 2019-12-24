@@ -1,6 +1,6 @@
-require "dry-struct"
-require "dry-types"
+require "dry/struct"
+require "dry/types"
 
 module Types
-  include Dry::Types.module
+  include Dry.Types()
 end
