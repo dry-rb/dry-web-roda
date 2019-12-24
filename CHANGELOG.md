@@ -1,6 +1,22 @@
 # 0.13.1 - 2019-12-24
 
+## Changed
+
+* Removed `inflecto` in favor of `dry-inflector` (@solnic)
+
+[Compare v0.13.0...v0.13.1](https://github.com/dry-rb/dry-web-roda/compare/v0.13.0...v0.13.1)
+
+# 0.13.0 - 2019-12-24
+
 ## Fixed
+
+* dry-monitor for rom is correctly configured in the generated boot file (@mlk-yozu)
+
+## Changed
+
+* Updated generated Gemfile to use the latest dry-* and rom-* gems (@solnic)
+* Fixed dry-types warning from the generated `types.rb` (@solnic)
+* ~~Removed `inflecto` in favor of `dry-inflector` (@solnic)~~ actually it was done in `0.13.1`
 
 - Added missing dependency on `dry-inflector` (@solnic)
 
@@ -20,7 +36,7 @@
 
 * Updated generated Gemfile to use the latest dry-* and rom-* gems (@solnic)
 * Fixed dry-types warning from the generated `types.rb` (@solnic)
-* Removed `inflecto` in favor of `dry-inflector` (@solnic)
+* ~~Removed `inflecto` in favor of `dry-inflector` (@solnic)~~
 
 [Compare v0.12.0...v0.13.0](https://github.com/dry-rb/dry-web-roda/compare/v0.12.0...v0.13.0)
 
