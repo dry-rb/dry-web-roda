@@ -8,7 +8,6 @@
 [![Gem Version](https://badge.fury.io/rb/dry-web-roda.svg)][gem]
 [![CI Status](https://github.com/rom-rb/rom/workflows/ci/badge.svg)][actions]
 [![Code Climate](https://codeclimate.com/github/dry-rb/dry-web-roda/badges/gpa.svg)][codeclimate]
-[![Test Coverage](https://codeclimate.com/github/dry-rb/dry-web-roda/badges/coverage.svg)][codeclimate]
 [![Inline docs](http://inch-ci.org/github/dry-rb/dry-web-roda.svg?branch=master&style=flat)][inchpages]
 
 Integration between [dry-web](https://github.com/dry-rb/dry-web) and [roda](https://github.com/jeremyevans/roda).
