@@ -1,51 +1,29 @@
 [gem]: https://rubygems.org/gems/dry-web-roda
-[actions]: https://github.com/rom-rb/rom/actions
-[codeclimate]: https://codeclimate.com/github/dry-rb/dry-web-roda
-[inchpages]: http://inch-ci.org/github/dry-rb/dry-web-roda/
+[actions]: https://github.com/dry-rb/dry-web-roda/actions
+[codacy]: https://www.codacy.com/gh/dry-rb/dry-web-roda
+[chat]: https://dry-rb.zulipchat.com
+[inchpages]: http://inch-ci.org/github/dry-rb/dry-web-roda
 
-# dry-web-roda [![Join the chat at https://gitter.im/dry-rb/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dry-rb/chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# dry-web-roda [![Join the chat at https://dry-rb.zulipchat.com](https://img.shields.io/badge/dry--rb-join%20chat-%23346b7a.svg)][chat]
 
 [![Gem Version](https://badge.fury.io/rb/dry-web-roda.svg)][gem]
-[![CI Status](https://github.com/rom-rb/rom/workflows/ci/badge.svg)][actions]
-[![Code Climate](https://codeclimate.com/github/dry-rb/dry-web-roda/badges/gpa.svg)][codeclimate]
-[![Inline docs](http://inch-ci.org/github/dry-rb/dry-web-roda.svg?branch=master&style=flat)][inchpages]
+[![CI Status](https://github.com/dry-rb/dry-web-roda/workflows/ci/badge.svg)][actions]
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa0e136b8b6640439852099ca002e01b)][codacy]
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/aa0e136b8b6640439852099ca002e01b)][codacy]
+[![Inline docs](http://inch-ci.org/github/dry-rb/dry-web-roda.svg?branch=master)][inchpages]
 
-Integration between [dry-web](https://github.com/dry-rb/dry-web) and [roda](https://github.com/jeremyevans/roda).
+## Links
 
-dry-web-roda offers a CLI for generating new projects.
+* [User documentation](http://dry-rb.org/gems/dry-web-roda)
+* [API documentation](http://rubydoc.info/gems/dry-web-roda)
 
-### Umbrella projects
+## Supported Ruby versions
 
-To generate a new _umbrella project_ (functionality divided into sub-apps):
+This library officially supports the following Ruby versions:
 
-```sh
-$ dry-web-roda new <your_project_name>
-```
+* MRI >= `2.4`
+* jruby >= `9.2`
 
-And to generate sub-apps within your project:
-
-```sh
-$ dry-web-roda generate sub_app <your_sub_app_name> --umbrella=<your_project_name>
-```
-
-### Flat projects
-
-To generate a new _flat project_ (a simpler architecture, with a single module for your entire app):
-
-```sh
-$ dry-web-roda new <your_project_name> --arch=flat
-```
-
-## LICENSE
+## License
 
 See `LICENSE` file.
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/dry-rb/dry-web-roda.
-
-## Acknowledgements
-
-The support code for testing the CLI and generated app are derived from
-[hanami/hanami](https://github.com/hanami/hanami). Thank you to Luca and the
-Hanami team!
