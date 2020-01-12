@@ -1,2 +1,19 @@
 name: dry-web-roda
 codacy_id: aa0e136b8b6640439852099ca002e01b
+gemspec:
+  authors: ["Piotr Solnica"]
+  email: ["piotr.solnica@gmail.com"]
+  summary: "Roda integration for dry-web apps"
+  development_dependencies:
+    - aruba
+    - bundler
+    - rake
+    - rspec
+    - [capybara, "~> 2.5"]
+    - waituntil
+  runtime_dependencies:
+    - [dry-configurable, "~> 0.2"]
+    - [dry-inflector, "~> 0.2"]
+    - [roda, "~> 3.0"]
+    - [roda-flow, "~> 0.4"]
+    - [thor, "~> 0.19"]
