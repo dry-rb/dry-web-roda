@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.summary       = "Roda integration for dry-web apps"
   spec.description   = spec.summary
   spec.homepage      = 'https://dry-rb.org/gems/dry-web-roda'
-  spec.files         = Dir['CHANGELOG.md', 'LICENSE', 'README.md', 'dry-web-roda.gemspec', 'lib/**/*']
+  spec.files         = Dir["CHANGELOG.md", "LICENSE", "README.md", "dry-web-roda.gemspec", "lib/**/*"]
   spec.require_paths = ['lib']
 
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
