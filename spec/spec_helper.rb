@@ -1,9 +1,13 @@
+require_relative 'support/coverage'
+
 require "pry-byebug"
 
 SPEC_ROOT = Pathname(__dir__)
 TEST_APP_NAME = "test_app".freeze
 
 Dir[SPEC_ROOT.join("support/*.rb").to_s].each { |f| require f }
+
+Warning.ignore(/waitutil/)
 
 RSpec.configure do |config|
   config.disable_monkey_patching!

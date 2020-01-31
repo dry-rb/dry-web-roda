@@ -6,7 +6,14 @@ eval_gemfile 'Gemfile.devtools'
 
 group :tools do
   gem 'pry'
-  gem 'byebug', platform: :mri
+  gem 'byebug', platform: :ruby
+end
+
+group :development do
+  gem "aruba"
+  gem "bundler"
+  gem "rake"
+  gem "waitutil"
 end
 
 group :test do
@@ -28,7 +35,7 @@ group :test do
   gem "dry-view"
   gem "dry-web"
   gem "slim"
-  gem "pry-byebug", platform: :mri
+  gem "pry-byebug", platform: :ruby
   gem "capybara"
   gem "capybara-screenshot"
   gem "database_cleaner"

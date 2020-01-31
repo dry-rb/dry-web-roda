@@ -4,6 +4,8 @@ gemspec:
   authors: ["Piotr Solnica"]
   email: ["piotr.solnica@gmail.com"]
   summary: "Roda integration for dry-web apps"
+  executables:
+    - "dry-web-roda"
   development_dependencies:
     - aruba
     - bundler

@@ -24,6 +24,8 @@ Gem::Specification.new do |spec|
   spec.metadata['changelog_uri']     = 'https://github.com/dry-rb/dry-web-roda/blob/master/CHANGELOG.md'
   spec.metadata['source_code_uri']   = 'https://github.com/dry-rb/dry-web-roda'
   spec.metadata['bug_tracker_uri']   = 'https://github.com/dry-rb/dry-web-roda/issues'
+  spec.bindir                        = 'bin'
+  spec.executables                   = 'dry-web-roda'
 
   spec.required_ruby_version = ">= 2.4.0"
 
@@ -33,11 +35,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "roda", "~> 3.0"
   spec.add_runtime_dependency "roda-flow", "~> 0.4"
   spec.add_runtime_dependency "thor", "~> 0.19"
-
-  spec.add_development_dependency "aruba"
-  spec.add_development_dependency "bundler"
-  spec.add_development_dependency "capybara", "~> 2.5"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "waituntil"
 end

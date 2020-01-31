@@ -24,7 +24,7 @@ module RSpec
       end
 
       def self.with_clean_env(&blk)
-        ::Bundler.with_clean_env(&blk)
+        ::Bundler.with_unbundled_env(&blk)
       end
 
       private
