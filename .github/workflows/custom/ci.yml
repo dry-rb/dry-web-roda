@@ -1,5 +1,5 @@
 jobs:
-  tests-mri:
+  tests:
     services:
       postgres_db:
         image: postgres:10.8
