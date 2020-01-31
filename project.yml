@@ -6,13 +6,6 @@ gemspec:
   summary: "Roda integration for dry-web apps"
   executables:
     - "dry-web-roda"
-  development_dependencies:
-    - aruba
-    - bundler
-    - rake
-    - rspec
-    - [capybara, "~> 2.5"]
-    - waituntil
   runtime_dependencies:
     - [dry-configurable, "~> 0.2"]
     - [dry-inflector, "~> 0.2"]
