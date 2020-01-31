@@ -5,15 +5,15 @@ require "dry/system/components"
 module <%= config[:camel_cased_umbrella_name] %>
   module <%= config[:camel_cased_app_name] %>
     class Container < Dry::Web::Container
-      require root.join("system/<%= config[:underscored_umbrella_name] %>/container")
-      import core: <%= config[:camel_cased_umbrella_name] %>::Container
-
       configure do |config|
         config.root = Pathname(__FILE__).join("../../..").realpath.dirname.freeze
         config.logger = <%= config[:camel_cased_umbrella_name] %>::Container[:logger]
         config.default_namespace = "<%= config[:underscored_umbrella_name] %>.<%= config[:underscored_project_name] %>"
         config.auto_register = %w[lib/<%= config[:underscored_umbrella_name] %>/<%= config[:underscored_project_name] %>]
       end
+
+      require root.join("../../system/<%= config[:underscored_umbrella_name] %>/container").to_s
+      import core: <%= config[:camel_cased_umbrella_name] %>::Container
 
       load_paths! "lib"
     end
