@@ -50,6 +50,17 @@ jobs:
       run: bundle install --jobs 4 --retry 3
     - name: Run all tests
       run: bundle exec rake
+    services:
+      postgres_db:
+        image: postgres:10.8
+        env:
+          POSTGRES_USER: runner
+          POSTGRES_PASSWORD: ''
+          POSTGRES_DB: sandbox_development
+        ports:
+        - 5432:5432
+        options: "--health-cmd pg_isready --health-interval 10s --health-timeout 5s
+          --health-retries 5"
   release:
     runs-on: ubuntu-latest
     if: contains(github.ref, 'tags') && github.event_name == 'create'
@@ -69,15 +80,3 @@ jobs:
       run: |
         tag=$(echo $GITHUB_REF | cut -d / -f 3)
         ossy gh w dry-rb/devtools release --payload "{\"tag\":\"$tag\",\"tag_creator\":\"$GITHUB_ACTOR\",\"repo\":\"$GITHUB_REPOSITORY\"}"
-  tests-mri:
-    services:
-      postgres_db:
-        image: postgres:10.8
-        env:
-          POSTGRES_USER: runner
-          POSTGRES_PASSWORD: ''
-          POSTGRES_DB: sandbox_development
-        ports:
-        - 5432:5432
-        options: "--health-cmd pg_isready --health-interval 10s --health-timeout 5s
-          --health-retries 5"
