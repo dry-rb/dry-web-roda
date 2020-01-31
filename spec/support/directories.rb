@@ -22,7 +22,7 @@ module RSpec
           yield
         end
       ensure
-        FileUtils.rm_rf(dir)
+        FileUtils.rm_rf(dir) unless ENV['CLEAR_TMP'].eql?('false')
       end
     end
   end
