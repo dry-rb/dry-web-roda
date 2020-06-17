@@ -56,7 +56,7 @@ jobs:
       if: env.COVERAGE == 'true'
       with:
         project-token: "${{secrets.CODACY_PROJECT_TOKEN}}"
-        coverage-reports: coverage/coverage.xm
+        coverage-reports: coverage/coverage.xml
     services:
       postgres_db:
         image: postgres:10.8
