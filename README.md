@@ -1,3 +1,5 @@
+# ⚠ Deprecated in favor of Hanami 2.0
+
 [gem]: https://rubygems.org/gems/dry-web-roda
 [actions]: https://github.com/dry-rb/dry-web-roda/actions
 [codacy]: https://www.codacy.com/gh/dry-rb/dry-web-roda
@@ -11,11 +13,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa0e136b8b6640439852099ca002e01b)][codacy]
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/aa0e136b8b6640439852099ca002e01b)][codacy]
 [![Inline docs](http://inch-ci.org/github/dry-rb/dry-web-roda.svg?branch=master)][inchpages]
-
-## Links
-
-* [User documentation](http://dry-rb.org/gems/dry-web-roda)
-* [API documentation](http://rubydoc.info/gems/dry-web-roda)
 
 ## Supported Ruby versions
 
