@@ -12,6 +12,11 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/aa0e136b8b6640439852099ca002e01b)][codacy]
 [![Inline docs](http://inch-ci.org/github/dry-rb/dry-web-roda.svg?branch=master)][inchpages]
 
+## Links
+
+* [User documentation](http://dry-rb.org/gems/dry-web-roda)
+* [API documentation](http://rubydoc.info/gems/dry-web-roda)
+
 ## Supported Ruby versions
 
 This library officially supports the following Ruby versions:
