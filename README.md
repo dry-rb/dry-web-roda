@@ -1,3 +1,5 @@
+# ⚠ Deprecated in favor of Hanami 2.0
+
 [gem]: https://rubygems.org/gems/dry-web-roda
 [actions]: https://github.com/dry-rb/dry-web-roda/actions
 [codacy]: https://www.codacy.com/gh/dry-rb/dry-web-roda
