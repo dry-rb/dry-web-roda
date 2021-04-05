@@ -11,4 +11,4 @@ gemspec:
     - [dry-inflector, "~> 0.2"]
     - [roda, "~> 3.0"]
     - [roda-flow, "~> 0.4"]
-    - [thor, "~> 0.19"]
+    - [thor, "~> 1.0"]
