@@ -22,7 +22,7 @@ group :test do
   gem "rack_csrf"
   gem "rerun"
   gem "rack", ">= 2.0"
-  gem "pg"
+  gem "pg", platform: :ruby
   gem "rom", "~> 5.1"
   gem "rom-factory", "~> 0.10"
   gem "rom-sql", "~> 3.1"
