@@ -32,5 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "dry-inflector", "~> 0.2"
   spec.add_runtime_dependency "roda", "~> 3.0"
   spec.add_runtime_dependency "roda-flow", "~> 0.4"
-  spec.add_runtime_dependency "thor", "~> 0.19"
+  spec.add_runtime_dependency "thor", "~> 1.0"
 end
