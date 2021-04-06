@@ -1,4 +1,8 @@
 ---
+- version: 0.14.0
+  date: '2021-04-06'
+  changed:
+  - "Dependency on thor was updated to `~> 1.0` (@rawburt)"
 - version: 0.13.1
   date: '2019-12-24'
   changed:
