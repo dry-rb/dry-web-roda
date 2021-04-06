@@ -1,5 +1,16 @@
+## 0.14.0 2021-04-06
+
+- "Dependency on thor was updated to `~> 1.0` (@rawburt)"
+
+[Compare v0.13.1...v0.14.0](https://github.com/dry-rb/dry-web-roda/compare/v0.13.1...v0.14.0)
+
 ## 0.13.1 2019-12-24
 
+- Removed `inflecto` in favor of `dry-inflector` (@solnic)
+
+[Compare v0.13.0...v0.13.1](https://github.com/dry-rb/dry-web-roda/compare/v0.13.0...v0.13.1)
+
+## 0.13.1 2019-12-24
 
 ### Changed
 
